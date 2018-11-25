@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import { WebBrowser, Linking } from 'expo';
 
-console.log('Platform', Platform);
-
 class MainScreen extends React.Component {
   async componentDidMount() {
     // Fluxo do Login ...
@@ -18,7 +16,7 @@ class MainScreen extends React.Component {
     // Se tem token salvo, considero usuario conectado.
     // redireciono ele para Home.
     if (accessToken) {
-      this.props.navigation.navigate('Home');
+      this.props.navigation.navigate('Setup');
     }
   }
 
@@ -41,9 +39,9 @@ class MainScreen extends React.Component {
       }
     });
 
-    this.setState({ redirectData: data });
-
     await Promise.all(promises);
+    
+    this.props.navigation.navigate('Setup');
   };
 
   _openWebBrowserAsync = async () => {
