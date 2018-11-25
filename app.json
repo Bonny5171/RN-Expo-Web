@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "everysfa",
+    "description": "A very interesting project.",
+    "slug": "everysfa",
+    "privacy": "public",
+    "sdkVersion": "28.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "icon": "./src/assets/images/icon.png",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+  }
+}
