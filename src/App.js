@@ -2,7 +2,7 @@ import { SwitchNavigator } from 'react-navigation';
 
 import Main from './screens/Main';
 import Home from './screens/Home';
-import Setup from './screens/Setup';
+import Setup from './pages/Setup';
 import PrimeiraScreen from './screens/PrimeiraScreen';
 import SegundaScreen from './screens/SegundaScreen';
 
