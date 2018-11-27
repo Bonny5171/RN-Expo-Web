@@ -45,11 +45,12 @@ class MainScreen extends React.Component {
   };
 
   _openWebBrowserAsync = async () => {
-    if (Platform.OS !== 'web') {
-      this._addLinkingListener();
+    if (Platform.OS === 'web') {
+      window.location.href = 'https://everysfaenvs.z5.web.core.windows.net/';
     } 
-    let result = await WebBrowser.openBrowserAsync(`https://everysfaenvs.z5.web.core.windows.net/`);
-    if (Platform.OS !== 'web') {
+    else{
+      this._addLinkingListener();
+      await WebBrowser.openBrowserAsync(`https://everysfaenvs.z5.web.core.windows.net/`);
       this._removeLinkingListener();
     }
   }

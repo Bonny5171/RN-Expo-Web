@@ -22,12 +22,11 @@ class SetupScreen extends React.Component {
     })
   };
 
-  async _handleDownLoadDb() {
-    const dbName = 'sfa-account.db';
+  async _handleDownLoadDb(dbName) {
     try {
       downloadResumable = FileSystem.createDownloadResumable(
         `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
-        FileSystem.documentDirectory + 'sfa-account.db',
+        FileSystem.documentDirectory + '/SQLite/' + dbName,
         {},
         this.callback
       );
