@@ -1,6 +1,6 @@
-import {LinearGradient} from 'expo';
+import { LinearGradient } from 'expo';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Platform, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
@@ -76,13 +76,17 @@ class Setup extends React.Component {
         </View>
         <View style={styles.body}>
           <View style={styles.headerBody}>
-            <LinearGradient colors={['rgba(0,133,178, 0.1)', 'rgba(0,133,178, 0)']} style={styles.linearGradient}>
-              {/*<Steps
-                vwSteps={{ flexDirection: 'row', marginTop: 15 }}
-                steps={steps}
-                componentValues={StepsSetup}
-              />*/}
-            </LinearGradient>
+            {
+              Platform.OS !== 'web'
+                ? <LinearGradient colors={['rgba(0,133,178, 0.1)', 'rgba(0,133,178, 0)']} style={styles.linearGradient}>
+                    {/*<Steps
+                      vwSteps={{ flexDirection: 'row', marginTop: 15 }}
+                      steps={steps}
+                      componentValues={StepsSetup}
+                    />*/}
+                  </LinearGradient>
+                : <Text>Steps... devido nao carrega no web </Text>
+            }
           </View>
           <View style={styles.bodyBody}>
           {
