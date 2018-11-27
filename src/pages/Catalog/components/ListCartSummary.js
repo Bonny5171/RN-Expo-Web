@@ -1,5 +1,5 @@
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { View, Text, FlatList, Platform, Animated } from 'react-native';
 import global from '../../../assets/styles/global';
 import { Fade } from '../../../components';

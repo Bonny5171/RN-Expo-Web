@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Platform } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { Font } from '../../../assets/fonts/font_names';
 import { Button } from '../../../components';
 import { SortCode } from '.';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { View, Text, StyleSheet, Platform, Dimensions, Animated } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { acUpdateButtons as acUpdateHeader, } from '../../actions/pages/catalog';
 import * as reducersCatalog from '../../actions/pages/catalog';
 import * as reducersMenu from '../../actions/pages/menu';

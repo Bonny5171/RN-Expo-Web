@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { connect } from 'react-redux';
 import Routing from '../../utils/routing';
 import global from '../../assets/styles/global';

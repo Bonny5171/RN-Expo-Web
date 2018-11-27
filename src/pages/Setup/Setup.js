@@ -1,4 +1,4 @@
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, ImageBackground, Dimensions, TouchableOpacity, Animated, Easing } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { Tab, Gallery } from './';
 
 let { width } = Dimensions.get('window');

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, FlatList, Platform, TouchableOpacity, ScrollView, TextInput } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { SimpleButton, Button, IconActionless as IA, Fade, CheckBox } from '../../../../components';
 import { ColorColumn, Grid, CopyToAll } from '.';
 import { Font } from '../../../../assets/fonts/font_names';

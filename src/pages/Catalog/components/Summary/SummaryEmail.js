@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { View, StyleSheet, Text, Dimensions, FlatList, Platform, Image, TouchableOpacity } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { Row, Button, Fade } from '../../../../components';
 import { Font } from '../../../../assets/fonts/font_names';
 import global from '../../../../assets/styles/global';

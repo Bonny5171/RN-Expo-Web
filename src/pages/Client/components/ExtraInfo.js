@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import LinearGradient from 'expo';
 import { Button, Row } from '../../../components';
 import { Font } from '../../../assets/fonts/font_names';
 import ClientField from './ClientField';
