@@ -1,40 +1,75 @@
-import LinearGradient from 'expo';
+import { LinearGradient } from 'expo';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
+import { WebBrowser, FileSystem } from 'expo';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
 import { Conclusion, FirstSetup, Steps, Media } from '../../components';
 import styles from '../../assets/styles/global';
 import { acNavigate } from '../../actions/pages/menu';
-//import Routing from '../../utils/routing';
-//const { Redirect } = Routing;
 
 class Setup extends React.Component {
   constructor(props) {
     super(props);
+    state = {
+      statusDownload: null,
+    };
     this.props.acNextStep = this.props.acNextStep.bind(this);
     this.props.changePorcent = this.props.changePorcent.bind(this);
     this.props.changeIndeterminate = this.props.changeIndeterminate.bind(this);
+  }  
+
+  callback = downloadProgress => {
+    const progress =
+      downloadProgress.totalBytesWritten /
+      downloadProgress.totalBytesExpectedToWrite;
+    
+    console.log('Status do download: ', progress)
+    this.setState({
+      statusDownload: progress
+    })
+  };
+
+  async _handleDownLoadDb(dbName) {
+    try {
+      downloadResumable = FileSystem.createDownloadResumable(
+        `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
+        FileSystem.documentDirectory + '/SQLite/' + dbName,
+        {},
+        this.callback
+      );
+
+      const { uri } = await downloadResumable.resumeAsync();
+      console.log('Finished downloading to ', uri);
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  componentDidMount() {
-    const { onSync, changePorcent, changeIndeterminate } = this.props;
-    onSync({ service: 'product', changePorcent, changeIndeterminate }).then(() => {
-      onSync({ service: 'account', changePorcent, changeIndeterminate }).then(() => {
-        onSync({ service: 'resource', changePorcent, changeIndeterminate }).then(() => {
-          console.log('TERMINOU account');
-        });
-      });
-    });
+  _handleDownLoadDbAccount = async () => {
+    await this._handleDownLoadDb('sfa-account.db');
   }
+
+  _handleDownLoadDbProduct = async () => {
+    await this._handleDownLoadDb('sfa-product.db');
+  }
+
+  _handleDownLoadDbResource = async () => {
+    await this._handleDownLoadDb('sfa-resource.db');
+  }
+
+  _handleDownLoadDbSetup = async () => {
+    await this._handleDownLoadDb('sfa-setup.db');
+  }
+
 
   render() {
     const {
       steps, screen,
       acNextStep, iProgressBar,
       indeterminate, acUpdateContext,
-      redirects, toPage, acNavigate
+      acNavigate, navigation
     } = this.props;
 
     const StepsSetup = [
@@ -42,16 +77,6 @@ class Setup extends React.Component {
       { id: 1, txtStyle: styles.txtStep, txtStep: 'Mídias' },
       { id: 2, txtStyle: styles.txtStep, txtStep: 'Conclusão' }
     ];
-    const shouldRedirect = redirects[10].redirect;
-
-    if (shouldRedirect) {
-      /*return (
-        <Redirect
-          to={toPage}
-        />
-      );*/
-      return null;
-    }
 
     return (
       <View style={styles.container}>
@@ -83,9 +108,9 @@ class Setup extends React.Component {
                   <Media
                     nextStep={acNextStep}
                     iProgressBar={iProgressBar}
-                    actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: acNavigate, params: ['assistant'] }]}
+                    actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: navigation.navigate, params: ['Assistant'] }]}
                   />,
-                  <Conclusion actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: acNavigate, params: ['assistant'] }]} />
+                  <Conclusion actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: navigation.navigate, params: ['Assistant'] }]} />
                 ][screen]
               }
             </View>

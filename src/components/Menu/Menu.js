@@ -9,21 +9,6 @@ import { Button } from '../../components';
 import { Font } from '../../assets/fonts/font_names';
 import { VendorMenu, AdminMenu } from './common';
 
-export const routes = [
-  {
-    to: '/',
-    label: 'Home'
-  },
-  {
-    to: '/About',
-    label: 'About'
-  },
-  {
-    to: '/Contact',
-    label: 'Contact'
-  }
-];
-
 class Menu extends React.Component {
   render() {
     const {

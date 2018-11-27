@@ -2,12 +2,10 @@ import Button from './Button';
 import Conclusion from './Conclusion';
 import FirstSetup from './FirstSetup';
 import IconProgressBar from './IconProgressBar';
-i// mport Link from './Link';
 import LocalePicker from './LocalePicker';
 import Media from './Media';
 import Menu from './Menu';
 import Picker from './Picker';
-// import PrivateRoute from './PrivateRoute';
 import ProgressBar from './ProgressBar';
 import Steps from './Steps/Steps';
 import Fade from './Fade';
@@ -29,12 +27,10 @@ export {
   Conclusion,
   FirstSetup,
   IconProgressBar,
-  // Link,
   LocalePicker,
   Media,
   Menu,
   Picker,
-  // PrivateRoute,
   ProgressBar,
   Steps,
   Fade,
