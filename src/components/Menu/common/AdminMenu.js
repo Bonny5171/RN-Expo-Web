@@ -78,9 +78,9 @@ class AdminMenu extends React.PureComponent {
       );
       if (curr.name === 'orders' || curr.name === 'clients') {
         return (
-          <Row>
+          <Row key={curr.key}>
             {button}
-            <Text style={[global.menuIcon, { position: 'absolute', color: '#0085B2', fontSize: 18, marginLeft: 45, marginTop: 29 }]}>K</Text>
+            <Text style={[global.menuIcon, { position: 'absolute', color: admin[curr.key].isChosen ? '#0085B2' : '#999', fontSize: 18, marginLeft: 45, marginTop: 29 }]}>K</Text>
           </Row>
         );
       }

@@ -8,7 +8,7 @@ export default StyleSheet.create({
   /* estilo da pag de Setup e comuns */
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   containerCenter: {
     flex: 1,
