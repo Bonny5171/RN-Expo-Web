@@ -6,6 +6,16 @@ import {
 } from 'react-native';
 import { WebBrowser, FileSystem } from 'expo';
 
+const DATABASE_DIR = `${FileSystem.documentDirectory}SQLite/`
+
+const ensureDirAsync = async (dir, intermediates=true) => {
+  const props =  await FileSystem.getInfoAsync(dir)
+  if( props.exist && props.isDirectory){
+     return props;
+  }
+  return await FileSystem.makeDirectoryAsync(dir, {intermediates})
+}
+
 class SetupScreen extends React.Component {
   state = {
     statusDownload: null,
@@ -23,10 +33,12 @@ class SetupScreen extends React.Component {
   };
 
   async _handleDownLoadDb(dbName) {
+    console.log(`${FileSystem.documentDirectory}SQLite/${dbName}`);
+    await ensureDirAsync(DATABASE_DIR);
     try {
       downloadResumable = FileSystem.createDownloadResumable(
         `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
-        FileSystem.documentDirectory + '/SQLite/' + dbName,
+        `${DATABASE_DIR}${dbName}`,
         {},
         this.callback
       );
