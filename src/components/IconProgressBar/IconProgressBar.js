@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Font } from '../../assets/fonts/font_names';
-import { Button, ProgressBar } from '../../components';
+// import { Font } from '../../assets/fonts/font_names';
+// import { Button, ProgressBar } from '../../components';
+import Button from '../../components/Button';
+import ProgressBar from '../../components/ProgressBar';
 
 export default ({
   txt, nextStep, icon, percent, indeterminate
@@ -9,7 +11,7 @@ export default ({
   let color = '#999';
   const styleButton = [
     {
-      fontFamily: Font.C,
+      //fontFamily: Font.C,
       fontSize: 75,
       color
     }
@@ -35,7 +37,7 @@ export default ({
       }}
     >
       <Text style={[
-            { fontSize: 27, fontFamily: Font.ASemiBold },
+            { fontSize: 27, /*fontFamily: Font.ASemiBold*/ },
             { color }
           ]
         }
@@ -54,7 +56,8 @@ export default ({
         color={color}
       />
       <Text style={{
-          fontFamily: Font.ARegular, marginTop: 10, color: '#999'
+          //fontFamily: Font.ARegular, 
+          marginTop: 10, color: '#999'
         }}
       >
         {porcentagem}%

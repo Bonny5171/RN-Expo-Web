@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Font } from '../../assets/fonts/font_names';
+// import { Font } from '../../assets/fonts/font_names';
 
 const color = 'rgba(102, 102, 102, 0.5)';
 const dark = 'rgba(0, 0, 0, 0.7)';
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   sub_title_1: {
-    fontFamily: Font.ALight,
+    // fontFamily: Font.ALight,
     fontSize: 27,
     color: 'black',
     marginLeft: 30,
@@ -35,7 +35,7 @@ export default StyleSheet.create({
     flex: 4,
   },
   subtitle: {
-    fontFamily: Font.ALight,
+    // fontFamily: Font.ALight,
     margin: 5,
     marginTop: 35,
     marginLeft: 30,
@@ -43,13 +43,13 @@ export default StyleSheet.create({
     color: 'black'
   },
   txtStep1: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     marginTop: 5,
     marginLeft: 30,
     fontSize: 30,
   },
   txtStep: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     marginTop: 5,
     marginLeft: 100,
     fontSize: 30,
@@ -58,25 +58,25 @@ export default StyleSheet.create({
   /* Pagina de catalog */
   /* Topo */
   titlePagina: {
-    fontFamily: Font.AThin,
+    //fontFamily: Font.AThin,
     fontSize: 42,
     color,
     marginLeft: 30,
     marginTop: 20,
   },
   titleNomeCliente: {
-    fontFamily: Font.BRegular,
+    //fontFamily: Font.BRegular,
     fontSize: 18,
     marginTop: 20,
     color: dark,
   },
   codigoCliente: {
-    fontFamily: Font.ARegular,
+    //fontFamily: Font.ARegular,
     fontSize: 14,
     color: dark,
   },
   setorCliente: {
-    fontFamily: Font.ARegular,
+    //fontFamily: Font.ARegular,
     fontSize: 14,
     marginTop: 5,
     color,
@@ -84,7 +84,7 @@ export default StyleSheet.create({
 
   /* Topo */
   grupoDestaque: {
-    fontFamily: Font.BRegular,
+    //fontFamily: Font.BRegular,
     fontSize: 16,
     marginLeft: 10,
     marginBottom: 15,
@@ -93,60 +93,60 @@ export default StyleSheet.create({
 
   /* Box de produto */
   nomeProduto: {
-    fontFamily: Font.ABold,
+    //fontFamily: Font.ABold,
     fontSize: 12,
     color: dark,
   },
   codigoProduto: {
-    fontFamily: Font.ARegular,
+    //fontFamily: Font.ARegular,
     fontSize: 12,
     color: 'black',
   },
 
   /* Resumo Geral de Formatos de Texto */
   subHeader: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     fontSize: 32,
     color: dark,
     marginLeft: 30
   },
   h1: {
-    fontFamily: Font.AThin,
+    //fontFamily: Font.AThin,
     fontSize: 42,
     color,
   },
   h2: {
-    fontFamily: Font.AThin,
+    //fontFamily: Font.AThin,
     fontSize: 24,
     color: dark,
   },
   h3: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     fontSize: 24,
     color,
   },
   h4: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     fontSize: 20,
     color: dark,
   },
   h5: {
-    fontFamily: Font.BRegular,
+    //fontFamily: Font.BRegular,
     fontSize: 18,
     color,
   },
   h6: {
-    fontFamily: Font.ARegular,
+    //fontFamily: Font.ARegular,
     fontSize: 16,
     color,
   },
   h6Bold: {
-    fontFamily: Font.ABold,
+    //fontFamily: Font.ABold,
     fontSize: 16,
     color,
   },
   text: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     color: dark,
   },
   tag: {
@@ -203,22 +203,22 @@ export default StyleSheet.create({
 
   /* Icons */
   iconClose: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     fontSize: 35,
     color
   },
   iconPlus: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     color: 'rgba(102, 102, 102, 0.5)',
     fontSize: 40
   },
   iconUnChecked: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     color: 'rgba(102, 102, 102, 0.5)',
     fontSize: 25
   },
   iconChecked: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     color: 'rgba(0, 122, 176, 0.85)',
     fontSize: 25,
     textShadowOffset: { width: 2, height: 2 },
@@ -226,13 +226,13 @@ export default StyleSheet.create({
     textShadowRadius: 8
   },
   iconGota: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     color: 'rgba(0, 122, 176, 0.85)',
     fontSize: 25,
     marginLeft: 6,
   },
   icon: {
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
     color: 'rgba(0, 0, 0, 0.3)',
     fontSize: 34
   },
@@ -250,17 +250,17 @@ export default StyleSheet.create({
 
   /* Catalogo - label de dados do produto */
   columnHeader: {
-    fontFamily: Font.BLight,
+    //fontFamily: Font.BLight,
     fontSize: 14,
     color: 'rgba(0, 0, 0, 0.6)'
   },
   columnName: {
-    fontFamily: Font.ASemiBold,
+    //fontFamily: Font.ASemiBold,
     fontSize: 17,
     color: 'rgba(0, 0, 0, 0.8)'
   },
   columnValue: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     fontSize: 17,
     color: 'rgba(0, 0, 0, 0.8)'
   },
@@ -287,12 +287,12 @@ export default StyleSheet.create({
   },
   txtInput: {
     fontSize: 18,
-    fontFamily: Font.ALight
+    //fontFamily: Font.ALight
   },
   menuIcon: {
     fontSize: 37,
     color: 'rgba(0, 0, 0, 0.3)',
-    fontFamily: Font.C,
+    //fontFamily: Font.C,
   },
 
   // Tabs
@@ -309,13 +309,13 @@ export default StyleSheet.create({
     padding: 10
   },
   txtActive: {
-    fontFamily: Font.ASemiBold,
+    //fontFamily: Font.ASemiBold,
     fontSize: 20,
     color: '#2D7A8D',
     textAlign: 'center'
   },
   txtNotActive: {
-    fontFamily: Font.AMedium,
+    //fontFamily: Font.AMedium,
     fontSize: 19,
     color: '#4F9CAF',
     textAlign: 'center',
@@ -324,12 +324,12 @@ export default StyleSheet.create({
   },
 
   step1: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     marginLeft: 30,
     fontSize: 23,
   },
   step: {
-    fontFamily: Font.ALight,
+    //fontFamily: Font.ALight,
     marginLeft: 25,
     fontSize: 23,
   },

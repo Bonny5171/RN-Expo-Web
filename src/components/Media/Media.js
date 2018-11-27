@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, View, Text, Platform, Animated } from 'react-native';
-import { Font } from '../../assets/fonts/font_names';
-import { Button, IconProgressBar } from '../../components';
+// import { Font } from '../../assets/fonts/font_names';
+import Button from '../../components/Button';
+import IconProgressBar from '../../components/IconProgressBar';
 
 class Media extends React.Component {
   constructor(props) {
@@ -68,7 +69,7 @@ let styleMedia = {};
 if (Platform.OS === 'web') {
   styleMedia = StyleSheet.create({
     p: {
-      fontFamily: Font.ALight,
+      //fontFamily: Font.ALight,
       fontSize: 28,
       marginLeft: -30,
       lineHeight: 35,
@@ -83,7 +84,7 @@ if (Platform.OS === 'web') {
       color: '#999',
     },
     txtMedia: {
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       color: '#999',
       marginLeft: 15,
       fontSize: 23
@@ -100,7 +101,7 @@ if (Platform.OS === 'web') {
     txtStart: {
       fontSize: 20,
       color: 'white',
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       textAlign: 'center',
     },
     vwButtons: {
@@ -112,7 +113,7 @@ if (Platform.OS === 'web') {
 } else {
   styleMedia = StyleSheet.create({
     p: {
-      fontFamily: Font.ALight,
+      //fontFamily: Font.ALight,
       fontSize: 21,
       marginLeft: -20,
       lineHeight: 35,
@@ -135,7 +136,7 @@ if (Platform.OS === 'web') {
     txtStart: {
       fontSize: 18,
       color: 'white',
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       fontWeight: 'bold',
       textAlign: 'center',
     },
@@ -146,7 +147,7 @@ if (Platform.OS === 'web') {
     },
     txtMedia: {
       color: '#999',
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       marginLeft: 9,
       fontSize: 23
     },

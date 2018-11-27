@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Platform, Animated } from 'react-native';
-import { Font } from '../../assets/fonts/font_names';
-import { Button } from '../../components';
+// import { Font } from '../../assets/fonts/font_names';
+import Button from '../../components/Button';
 
 class Conclusion extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ if (Platform.OS === 'web') {
       marginLeft: 40
     },
     p: {
-      fontFamily: Font.ALight,
+      //fontFamily: Font.ALight,
       fontSize: 28,
       lineHeight: 35,
       marginLeft: 15,
@@ -61,7 +61,7 @@ if (Platform.OS === 'web') {
     },
     txtStart: {
       fontSize: 20,
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       color: 'white',
       textAlign: 'center',
     }
@@ -73,7 +73,7 @@ if (Platform.OS === 'web') {
       marginLeft: 30
     },
     p: {
-      fontFamily: Font.ALight,
+      //fontFamily: Font.ALight,
       fontSize: 21,
       marginLeft: 15,
       marginTop: 25,
@@ -90,7 +90,7 @@ if (Platform.OS === 'web') {
     },
     txtStart: {
       fontSize: 18,
-      fontFamily: Font.ASemiBold,
+      //fontFamily: Font.ASemiBold,
       color: 'white',
       fontWeight: 'bold',
       textAlign: 'center',

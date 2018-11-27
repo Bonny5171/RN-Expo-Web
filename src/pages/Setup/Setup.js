@@ -1,10 +1,17 @@
-import LinearGradient from 'expo';
+import {LinearGradient} from 'expo';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
-import { Conclusion, FirstSetup, Steps, Media } from '../../components';
+// import { Conclusion, FirstSetup, Steps, Media } from '../../components';
+// import Conclusion from '../../components/Conclusion';
+import FirstSetup from '../../components/FirstSetup';
+// import Steps from '../../components/Steps';
+import Media from '../../components/Media';
+import Conclusion from '../../components/Conclusion';
+
+
 import styles from '../../assets/styles/global';
 import { acNavigate } from '../../actions/pages/menu';
 //import Routing from '../../utils/routing';
@@ -19,6 +26,7 @@ class Setup extends React.Component {
   }
 
   componentDidMount() {
+    /*
     const { onSync, changePorcent, changeIndeterminate } = this.props;
     onSync({ service: 'product', changePorcent, changeIndeterminate }).then(() => {
       onSync({ service: 'account', changePorcent, changeIndeterminate }).then(() => {
@@ -27,6 +35,7 @@ class Setup extends React.Component {
         });
       });
     });
+    */
   }
 
   render() {
@@ -68,14 +77,15 @@ class Setup extends React.Component {
         <View style={styles.body}>
           <View style={styles.headerBody}>
             <LinearGradient colors={['rgba(0,133,178, 0.1)', 'rgba(0,133,178, 0)']} style={styles.linearGradient}>
-              <Steps
+              {/*<Steps
                 vwSteps={{ flexDirection: 'row', marginTop: 15 }}
                 steps={steps}
                 componentValues={StepsSetup}
-              />
+              />*/}
             </LinearGradient>
           </View>
           <View style={styles.bodyBody}>
+          {
             <View>
               {
                 [
@@ -89,6 +99,7 @@ class Setup extends React.Component {
                 ][screen]
               }
             </View>
+          }
           </View>
         </View>
       </View>

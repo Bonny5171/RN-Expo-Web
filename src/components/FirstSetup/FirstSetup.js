@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { Font } from '../../assets/fonts/font_names';
-import { IconProgressBar } from '../../components';
+// import { Font } from '../../assets/fonts/font_names';
+import IconProgressBar from '../../components/IconProgressBar';
 
 export default ({ iProgressBar, nextStep, indeterminate }) => (
   <View>
     <Text style={
         {
-          fontFamily: Font.ALight,
+          // fontFamily: Font.ALight,
           fontSize: 21,
           color: 'black',
         }
