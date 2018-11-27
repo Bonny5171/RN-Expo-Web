@@ -33,7 +33,7 @@ class VendorMenu extends React.PureComponent {
       vendor,
       subMenuIcon,
       container,
-      acNavigate,
+      navigation,
       acUpdateButtons,
       acSubMenuCatalog,
       acUpdateContext,
@@ -54,6 +54,9 @@ class VendorMenu extends React.PureComponent {
         rdType="vendor"
         rdName={curr.name}
         action={acResetSubMenu}
+        actions={[
+          { func: navigation.navigate, params: [curr.name]}
+        ]}
         isChosen={vendor[curr.key].isChosen}
         changeColor
         chosenColor="#0085B2"
@@ -81,7 +84,10 @@ class VendorMenu extends React.PureComponent {
                 activeOpacity={isCatalogActive ? 1 : 0.7}
                 style={{ flexDirection: 'row', marginTop: 35 }}
                 onLongPress={() => { if (isCatalogActive) { acSubMenuCatalog(); } else { acUpdateButtons('vendor', 'catalog'); acSubMenuCatalog(false); } }}
-                onPress={() => acUpdateButtons('vendor', 'catalog')}
+                onPress={() => {
+                  acUpdateButtons('vendor', 'catalog')
+                  navigation.navigate('catalog')
+                }}
               >
                 <Text style={[styles.menuIcon, icCatalog]}>{subMenuIcon}</Text>
               </TouchableOpacity>
@@ -105,7 +111,7 @@ class VendorMenu extends React.PureComponent {
                   func: acCatalogCover,
                   params: [],
                 },
-                { func: acNavigate, params: ['assistant'] },
+                { func: navigation.navigate, params: ['assistant'] },
                 { func: acUpdateContext, params: ['Admin'] },
                 { func: acResetNavigation, params: ['vendor'] }
               ]}

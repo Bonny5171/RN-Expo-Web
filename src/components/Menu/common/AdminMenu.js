@@ -9,13 +9,14 @@ class AdminMenu extends React.PureComponent {
     const {
       container,
       admin,
+      navigation,
       acNavigate,
       acUpdateContext,
       acResetNavigation,
       acUpdateButtons,
       acResetSubMenu,
     } = this.props;
-
+    console.log(navigation !== undefined);
     // As keys sao as mesmas posições do vetor na store
     // Icones do menu de vendedores
     const iconsValues = [
@@ -71,6 +72,9 @@ class AdminMenu extends React.PureComponent {
           rdName={curr.name}
           action={acResetSubMenu}
           isChosen={admin[curr.key].isChosen}
+          actions={[
+            { func: navigation.navigate, params: [curr.name]}
+          ]}
           changeColor
           chosenColor="#0085B2"
           nChosenColor="rgba(0,0,0,0.3)"
@@ -97,11 +101,6 @@ class AdminMenu extends React.PureComponent {
               txtMsg="8"
               tchbStyle={{ marginTop: 27 }}
               txtStyle={[global.menuIcon, { color: '#5473AA', fontSize: 47 }]}
-              actions={[
-                { func: acNavigate, params: [''] },
-                { func: acUpdateContext, params: ['Setup'] },
-                { func: acResetNavigation, params: [] }
-              ]}
             />
           </View>
           {/* Body */}
@@ -115,7 +114,7 @@ class AdminMenu extends React.PureComponent {
               txtMsg="8"
               actions={[
                 {
-                  func: acNavigate,
+                  func: navigation.navigate,
                   params: ['catalog']
                 },
                 {

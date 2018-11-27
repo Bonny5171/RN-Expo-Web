@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground, Image } from 'react-native';
+import { View, ImageBackground, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { Font } from 'expo'
@@ -8,7 +8,7 @@ import { backgroundVendor, backgroundAdmin } from './assets/imgs';
 import Routes from './utils/routing/Routes';
 const Stack = createStackNavigator(Routes,
   {
-    initialRouteName: 'Setup',
+    initialRouteName: 'setup',
     headerMode: 'none',
     transparentCard: true
   }
@@ -50,6 +50,7 @@ class Content extends React.Component {
     if (!this.state.fontLoaded) return <View/>;
     return (
       <ImageBackground source={background} style={{ flex: 1, flexDirection: 'row', backgroundColor: 'red' }} resizeMode="cover">
+        <StatusBar hidden />
         <Menu oauth={oauth} jsforce={jsforce} navigation={navigation} />
         <View style={{ flex: 1, flexDirection: 'column' }}>
           <Stack navigation={navigation} {...this.props} />

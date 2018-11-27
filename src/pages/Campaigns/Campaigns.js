@@ -5,8 +5,6 @@ import global from '../../assets/styles/global';
 
 class Campaigns extends React.Component {
   render() {
-
-
     return (
       <View style={{ flex: 1 }}>
         <Text style={global.titlePagina}>Página de CAMPANHAS em desenvolvimento</Text>

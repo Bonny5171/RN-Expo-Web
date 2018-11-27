@@ -1,10 +1,40 @@
-import { Setup, Assistant } from '../../pages';
+import {
+    Setup, Assistant,
+    Campaigns, Catalog,
+    Client, Clients,
+    Dashboards, ListCatalog,
+    Orders, Prices,
+} from '../../pages';
 
 export default MainRoutes = {
-    Setup: {
+    setup: {
         screen: Setup
     },
-    Assistant: {
+    assistant: {
         screen: Assistant
-    }
+    },
+    dashboard: {
+        screen: Dashboards
+    },
+    campaigns: {
+        screen: Campaigns
+    },
+    catalog: {
+        screen: Catalog
+    },
+    client: {
+        screen: Client
+    },
+    clients: {
+        screen: Clients
+    },
+    listCatalog: {
+        screen: ListCatalog
+    },
+    orders: {
+        screen: Orders
+    },
+    price: {
+        screen: Prices
+    },
 }
