@@ -44,8 +44,11 @@ class Steps extends React.PureComponent {
         const indice = i + 1;
         return (
           <TouchableOpacity
+            activeOpacity={1}
             key={i.toString()}
-            onPress={() => acPreviousStep(i)}
+            onPress={() => {
+              if (steps[i + 1]) acPreviousStep(i);
+            }}
           >
             <View key={values.id} style={values.vwStep}>
               <Text

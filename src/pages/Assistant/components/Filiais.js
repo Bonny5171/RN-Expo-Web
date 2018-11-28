@@ -18,7 +18,7 @@ class Filiais extends React.PureComponent {
     } = this.props;
 
     return (
-      <Fade style={{ flex: 4, paddingTop: 18 }} visible={stores.length > 0 && inputClient !== ''} duration={800}>
+      <Fade style={{ flex: 7 }} visible={stores.length > 0 && inputClient !== ''} duration={800}>
         <Text style={[global.text, { fontSize: 17 }]}>Este cliente possui filiais. Defina as lojas que compartilharão da compra</Text>
         <View style={{ flex: 1, flexDirection: 'row', paddingTop: 8 }}>
           {/* Box esquerdo */}

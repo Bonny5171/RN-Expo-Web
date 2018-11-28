@@ -226,8 +226,12 @@ let styles = StyleSheet.create({
     marginTop: 5,
   },
   icList: {
-    position: 'absolute',
-    right: 6,
+    ...Platform.select({
+      ios: {
+        position: 'absolute',
+        right: 6,
+      }
+    }),
     fontFamily: Font.C,
     fontSize: 35,
     textAlign: 'center',
