@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, ImageBackground, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { StackNavigator, createAppContainer } from 'react-navigation';
 import { Font } from 'expo'
 import { Menu } from './components';
 import { backgroundVendor, backgroundAdmin } from './assets/imgs';
 import Routes from './utils/routing/Routes';
-const Stack = createStackNavigator(Routes,
+const Stack = StackNavigator(Routes,
   {
     // initialRouteName: 'main',
     initialRouteName: 'setup',
@@ -64,5 +64,5 @@ class Content extends React.Component {
 const mapStateToProps = state => ({
   context: state.global.context
 });
-const AppContainer = createAppContainer(Content)
-export default connect(mapStateToProps)(AppContainer);
+
+export default connect(mapStateToProps)(Content);
