@@ -8,7 +8,7 @@ import { backgroundVendor, backgroundAdmin } from './assets/imgs';
 import Routes from './utils/routing/Routes';
 const Stack = StackNavigator(Routes,
   {
-    initialRouteName: 'main',
+    initialRouteName: 'setup',
     headerMode: 'none',
     transparentCard: true
   }
@@ -44,7 +44,7 @@ class Content extends React.Component {
 
 
   render() {
-    const { context, oauth, jsforce, navigation, SrvClients } = this.props;
+    const { context, oauth, jsforce, navigation, SrvSync } = this.props;
     const background = context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     
     if (!this.state.fontLoaded) return <View/>;
@@ -53,7 +53,7 @@ class Content extends React.Component {
         <StatusBar hidden />
         <Menu oauth={oauth} jsforce={jsforce} navigation={navigation} />
         <View style={{ flex: 1, flexDirection: 'column' }}>
-          <Stack navigation={navigation} {...this.props} />
+          <Stack navigation={navigation} />
         </View>
       </ImageBackground>
     );
