@@ -10,7 +10,7 @@ import { acSearchClient, acCurrentClient, acUpdateStores } from '../../actions/p
 import { CheckOption, DefineClient, Header } from './components';
 import * as SrvClients from '../../services/SGDLSqlite/Clients';
 
-class Assistant extends React.Component {
+class Assistant extends React.PureComponent {
   constructor(props) {
     super(props);
     this.steps = [
@@ -54,7 +54,7 @@ class Assistant extends React.Component {
 
   render() {
 
-
+    console.log('assistant');
     return (
       <View style={{ flex: 1 }}>
         <Header />

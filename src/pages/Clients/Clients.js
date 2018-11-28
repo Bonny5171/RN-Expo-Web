@@ -13,6 +13,7 @@ import {
   SortPopUp, FilterPopUp,
   DetailedList, ClientBox
 } from './components';
+import * as SrvClients from '../../services/SGDLSqlite/Clients';
 
 class Clients extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Clients extends React.Component {
   }
 
   componentDidMount() {
-    const { srvClients, acSetClients } = this.props;
-    const { fetch } = srvClients;
+    const { acSetClients } = this.props;
+    const { fetch } = SrvClients.srvClients;
     fetch(acSetClients);
   }
 

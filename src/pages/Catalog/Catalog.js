@@ -44,10 +44,11 @@ class Catalog extends React.Component {
       subMenuCatalog,
       catalogMenuItems,
       catalogCover,
+      vendor,
       assistantSelection,
     } = this.props;
 
-
+    const isCatalogActive = vendor[0].isChosen;
     return (
       <View style={{ flex: 1, flexDirection: 'column' }}>
         {body}

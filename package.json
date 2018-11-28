@@ -40,7 +40,7 @@
     "react-native-dotenv": "^0.1.1",
     "react-native-svg-web": "^1.0.1",
     "react-native-web": "^0.7.0",
-    "react-navigation": "^1.1.0-rc.4",
+    "react-navigation": "^3.0.0",
     "react-redux": "^5.1.1",
     "react-scripts": "1.0.17",
     "redux": "^4.0.1",
