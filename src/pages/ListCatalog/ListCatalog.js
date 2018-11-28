@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { SubMenu } from '../../components';
 import { acToggleExpanded } from '../../actions/pages/catalog';
 import { acUpdateButtons, acSubMenuCatalog, acSubMenuIcon, acNavigate } from '../../actions/pages/menu';
@@ -12,11 +13,11 @@ class ListCatalog extends React.Component {
       acUpdateButtons, acNavigate, acSubMenuIcon, acSubMenuCatalog,
       acToggleExpanded
     } = this.props;
-
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
 
     return (
-      <View style={{ flex: 1 }}>
-        <Text>CATÁLOGO EM LISTAGEM</Text>
+      <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
+        <Text>CATÁLOGO EM LISTAGEM</Text> 
         {
           subMenuCatalog ?
             <SubMenu
@@ -32,7 +33,7 @@ class ListCatalog extends React.Component {
             /> :
             null
         }
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -40,7 +41,8 @@ class ListCatalog extends React.Component {
 const mapStateToProps = state => (
   {
     catalogMenuItems: state.menu.catalogMenuItems,
-    subMenuCatalog: state.menu.subMenuCatalog
+    subMenuCatalog: state.menu.subMenuCatalog,
+    context: state.global.context
   }
 );
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, StyleSheet, Platform, Dimensions, Animated } from 'react-native';
+import { View, Text, StyleSheet, Platform, Dimensions, Animated, ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { acUpdateButtons as acUpdateHeader, } from '../../actions/pages/catalog';
 import * as reducersCatalog from '../../actions/pages/catalog';
 import * as reducersMenu from '../../actions/pages/menu';
@@ -47,10 +48,10 @@ class Catalog extends React.Component {
       vendor,
       assistantSelection,
     } = this.props;
-
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     const isCatalogActive = vendor[0].isChosen;
     return (
-      <View style={{ flex: 1, flexDirection: 'column' }}>
+      <ImageBackground source={background} style={{ flex: 1, flexDirection: 'column' }} resizeMode="cover">
         {body}
         {header}
         <SubMenu
@@ -66,7 +67,7 @@ class Catalog extends React.Component {
           {...this.props}
         />
         <Cover show={catalogCover} {...this.props} />
-      </View>
+      </ImageBackground>
     );
   }
 
@@ -251,6 +252,7 @@ const mapStateToProps = state => (
             selectOpt: state.catalog.selectOpt,
             resumoCar: state.catalog.resumoCar,
                client: state.client.client,
+              context: state.global.context
   }
 );
 

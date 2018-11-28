@@ -12,6 +12,8 @@ class InputLabel extends React.Component {
       label,
       inputStyle,
       onChangeText,
+      onFocus,
+      onBlur
     } = this.props;
     return (
       <View style={container}>
@@ -21,7 +23,10 @@ class InputLabel extends React.Component {
             underlineColorAndroid="transparent"
             style={styles.txtInput}
             onChangeText={onChangeText}
+            onFocus={onFocus}
+            onBlur={onBlur}
             value={value}
+            spellCheck={false}
           />
         </View>
       </View>

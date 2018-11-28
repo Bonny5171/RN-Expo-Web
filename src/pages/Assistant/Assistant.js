@@ -1,18 +1,23 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, Platform } from 'react-native';
 import { LinearGradient } from 'expo';
 import { connect } from 'react-redux';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import global from '../../assets/styles/global';
 import { Steps, SimpleButton } from '../../components';
 import * as assistantActions from '../../actions/pages/assistant';
 import { acFilterList, acSetClients } from '../../actions/pages/clients';
 import { acSearchClient, acCurrentClient, acUpdateStores } from '../../actions/pages/client';
+import { acUpdateContext } from '../../actions/global';
 import { CheckOption, DefineClient, Header } from './components';
 import * as SrvClients from '../../services/SGDLSqlite/Clients';
 
-class Assistant extends React.PureComponent {
+class Assistant extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isInputActive: false
+    };
     this.steps = [
       {
         id: 0,
@@ -39,6 +44,7 @@ class Assistant extends React.PureComponent {
       'Catálogo (com opção de gerar pedido)',
       'Mostruário (somente vizualização)'
     ];
+    this.toggleInput = this.toggleInput.bind(this);
   }
 
   componentDidMount() {
@@ -52,23 +58,56 @@ class Assistant extends React.PureComponent {
     this.props.acResetAssistant();
   }
 
-  render() {
+  componentDidUpdate() {
+    if (this.state.isInputActive) {
+      this.scrollView.scrollTo({ y: 230 }); 
+    } else {
+      this.scrollView.scrollTo({ y: 0 }); 
+    }
+  }
 
-    console.log('assistant');
+  render() {
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
+    if(Platform.OS === 'web') {
+      return (
+        <ImageBackground style={{ flex: 1 }} source={background} resizeMode="cover">
+            <Header />
+            {this._renderBody()}
+        </ImageBackground>
+      );
+    }
+
     return (
-      <View style={{ flex: 1 }}>
-        <Header />
-        {this._renderBody()}
-      </View>
+      <ImageBackground style={{ flex: 1 }} source={background} resizeMode="cover">
+        <ScrollView
+          style={{ flex: 1 }}
+          scrollEnabled={false}
+          showsVerticalScrollIndicator={false}
+          ref={(ref) => this.scrollView = ref}
+        >
+          <View style={{ height: 1100 }}>
+            <Header />
+            {this._renderBody()}
+          </View>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 
   _renderBody() {
     const {
+      stores,
+      client,
       steps,
       screen,
       checkboxes,
+      navigation,
+      prevSteps,
       acCheckBox,
+      acPreviousStep,
+      acUpdateContext,
+      acUpdateStores,
+      acNextStep
     } = this.props;
 
     const checkBoxes = this.checkboxes.map((msg, index) => (
@@ -84,6 +123,7 @@ class Assistant extends React.PureComponent {
     const screens = [
       checkBoxes,
       <DefineClient
+        toggleInput={this.toggleInput}
         srvClients={SrvClients.srvClients}
         {...this.props}
       />
@@ -101,7 +141,10 @@ class Assistant extends React.PureComponent {
         </LinearGradient>
         <Steps
           componentValues={this.steps}
+          acPreviousStep={acPreviousStep}
           steps={steps}
+          prevSteps={prevSteps}
+          returnableSteps
         />
         {/* Telas */}
         <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -113,20 +156,27 @@ class Assistant extends React.PureComponent {
               tchbStyle={{ alignSelf: 'flex-end' }}
               msg="AVANÇAR"
               action={() => {
+                // Variável TEMPORARIA para apresentação
+                const apresentacao = true
+
                 // Sera evoluido para forEach quando tivermos todos os passos desenvolvidos
                 if (screen === 0) {
                   if (checkboxes[0] || checkboxes[1]) {
-                    this.props.acNextStep();
-                    this.props.acUpdateStores(this.props.stores);
+                    acNextStep();
+                    acUpdateStores(stores);
                   }
                 } else if (screen === 1) {
-                  if (this.props.client.name !== '') {
-                    this.props.acNextStep();
-                    this.props.acUpdateStores(this.props.stores);
+                  if (client.name !== '') {
+                    acNextStep();
+                    acUpdateStores(stores);
+                    if(apresentacao) {
+                      navigation.navigate('catalog');
+                      acUpdateContext('Vendedor');
+                    }
                   }
                 } else {
-                  this.props.acNextStep();
-                    this.props.acUpdateStores(this.props.stores);
+                  acNextStep();
+                  acUpdateStores(stores);
                 }
               }}
             />
@@ -135,6 +185,12 @@ class Assistant extends React.PureComponent {
       </View>
     );
   }
+
+  toggleInput() {
+    this.setState({
+      isInputActive: !this.state.isInputActive
+    });
+  }
 }
 
 const mapStateToProps = state => (
@@ -142,11 +198,13 @@ const mapStateToProps = state => (
     client: state.client.client,
     screen: state.assistant.screen,
     steps: state.assistant.steps,
+    prevSteps: state.assistant.prevSteps,
     checkboxes: state.assistant.checkboxes,
     filterBranches: state.assistant.filterBranches,
     stores: state.assistant.stores,
     dropdown: state.assistant.dropdown,
     data: state.clients.data,
+    context: state.global.context,
   }
 );
 
@@ -157,6 +215,7 @@ export default connect(mapStateToProps, {
   acFilterList,
   acUpdateStores,
   acSetClients,
+  acUpdateContext
 })(Assistant);
 
 const styles = StyleSheet.create({
