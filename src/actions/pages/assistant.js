@@ -59,3 +59,10 @@ export const acToggleDropdown = () => {
     type: 'toggle_dropdown'
   };
 };
+
+export const acPreviousStep = (index) => {
+  return {
+    type: 'previous_step_assistant',
+    index
+  };
+};

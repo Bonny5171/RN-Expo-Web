@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-
-import * as reducersClientes from '../../actions/pages/clients';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
+import * as reducersCliente from '../../actions/pages/client';
 import * as reducersMenu from '../../actions/pages/menu';
 
 import { Title } from '../../components';
@@ -27,18 +27,27 @@ class Client extends React.Component {
 
     const extraInfoScreens = [
       <ExtraInfo
-        client={{ approved: 'R$ 0,00', credit: 'R$ 1.000.000,00', billed: 'R$ 0,00' }}
+        title="INFORMAÇÕES FINANCEIRAS"
+        labels={['LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS', 'PEDIDOS FATURADOS', 'LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS', 'PEDIDOS FATURADOS']}
+        infos={['R$ 5.000.000,00', 'R$ 1.000.000,00', 'R$48880,00', 'R$ 51355,00', 'R$ 4.000.000,00', 'R$ 5123,00',]}
         {...this.props}
       />,
       <ExtraInfo
-        client={{ approved: 'R$ 0,00', credit: 'R$ 2.000.000,00', billed: 'R$ 0,00' }}
+        // Endereços
+        title="ENDEREÇOS"
+        labels={['RUA', '', '', '', '', '']}
+        infos={['ALEXANDRE DUMAS, 2048', '', '', '', '', '',]}
         {...this.props}
       />,
       <ExtraInfo
-        client={{ approved: 'R$ 0,00', credit: 'R$ 3.000.000,00', billed: 'R$ 0,00' }}
+        // Descontosrr
+        title="DESCONTOS"
+        labels={['1º DESCONTO', '2º DESCONTO', '3º DESCONTO', '4º DESCONTO', '', '']}
+        infos={['20%', '10%', '50%', '75%', '', '',]}
         {...this.props}
       />,
     ];
+
 
     let current = {};
     for (let i = 0; i < extraInfo.length; i += 1) {
@@ -46,9 +55,9 @@ class Client extends React.Component {
         current = extraInfoScreens[i];
       }
     }
-
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
-      <View style={{ flex: 1 }}>
+      <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
         <ScrollView contentContainerStyle={{ height: 1700 }}>
           <View style={styles.header}>
             <View style={{ flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
@@ -93,7 +102,7 @@ class Client extends React.Component {
           {/* Histório de Descontos */}
           <View style={{ flex: 2 }} />
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -110,8 +119,8 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps,
   {
-    ...reducersClientes,
-    ...reducersMenu
+    ...reducersMenu,
+    ...reducersCliente
   }
 )(Client);
 

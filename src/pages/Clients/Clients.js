@@ -2,10 +2,11 @@ import React from 'react';
 import {
     View, Text, StyleSheet,
     Platform, FlatList,
-    Keyboard, TouchableOpacity
+    Keyboard, TouchableOpacity,
+    ImageBackground,
 } from 'react-native';
 import { connect } from 'react-redux';
-
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { Font } from '../../assets/fonts/font_names';
 import { Button, Fade, Title, Row } from '../../components';
 import { acUpdateComponent, acUpdateCurrent, acUpdateList, acFilterList, acCurrentClient, acSetClients } from '../../actions/pages/clients';
@@ -37,9 +38,9 @@ class Clients extends React.Component {
     const {
       buttons, list, acUpdateComponent, acUpdateList
     } = this.props;
-
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
-      <View style={styles.content}>
+      <ImageBackground source={background} style={styles.content} resizeMode="cover">
         { /* Header */}
         <View style={styles.header}>
           <Row>
@@ -127,7 +128,7 @@ class Clients extends React.Component {
             {...this.props}
           />
         </Fade>
-      </View>
+      </ImageBackground>
     );
   }
 
@@ -166,6 +167,7 @@ const mapStateToProps = state => ({
     list: state.clients.list,
     data: state.clients.data,
     client: state.clients.client,
+    context: state.global.context
 });
 
 export default connect(mapStateToProps,

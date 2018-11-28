@@ -87,14 +87,14 @@ const styles = StyleSheet.create({
   container: {
     position: 'absolute',
     backgroundColor: '#F3F4F6',
-    marginTop: 63,
+    marginTop: 73,
     width: 600,
     borderWidth: 1,
     borderBottomEndRadius: 4,
     borderColor: '#999',
     borderTopWidth: 0,
   },
-  list: { height: 250 }
+  list: { height: 200 }
 });
 
 export default DropDown;
