@@ -18,26 +18,36 @@ class Setup extends React.Component {
     this.props.acNextStep = this.props.acNextStep.bind(this);
     this.props.changePorcent = this.props.changePorcent.bind(this);
     this.props.changeIndeterminate = this.props.changeIndeterminate.bind(this);
-  }  
+  }
 
-  callback = downloadProgress => {
-    const progress =
-      downloadProgress.totalBytesWritten /
-      downloadProgress.totalBytesExpectedToWrite;
-    
-    console.log('Status do download: ', progress)
-    this.setState({
-      statusDownload: progress
-    })
-  };
+  async componentDidMount() {
+    await this._handleDownLoadDb('sfa-account.db', 'account');
+    await this._handleDownLoadDb('sfa-product.db', 'product');
+    await this._handleDownLoadDb('sfa-resource.db', 'resource');
+    await this._handleDownLoadDb('sfa-setup.db', 'setup');
+  }
 
-  async _handleDownLoadDb(dbName) {
+  async _handleDownLoadDb(dbName, srvName) {
     try {
       downloadResumable = FileSystem.createDownloadResumable(
         `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
         FileSystem.documentDirectory + '/SQLite/' + dbName,
         {},
-        this.callback
+        downloadProgress => {
+          const progress =
+            downloadProgress.totalBytesWritten /
+            downloadProgress.totalBytesExpectedToWrite;
+          
+          console.log('Status do download: ', progress)
+
+          const objStr = `{ "${srvName}": ${progress} }`;
+          const obj = JSON.parse(objStr);
+          changePorcent(obj);
+      
+          const objIndeterminate = `{ "${srvName}": false }`;
+          const objInt = JSON.parse(objIndeterminate);
+          changeIndeterminate(objInt); 
+        }
       );
 
       const { uri } = await downloadResumable.resumeAsync();
@@ -47,29 +57,12 @@ class Setup extends React.Component {
     }
   }
 
-  _handleDownLoadDbAccount = async () => {
-    await this._handleDownLoadDb('sfa-account.db');
-  }
-
-  _handleDownLoadDbProduct = async () => {
-    await this._handleDownLoadDb('sfa-product.db');
-  }
-
-  _handleDownLoadDbResource = async () => {
-    await this._handleDownLoadDb('sfa-resource.db');
-  }
-
-  _handleDownLoadDbSetup = async () => {
-    await this._handleDownLoadDb('sfa-setup.db');
-  }
-
-
   render() {
     const {
       steps, screen,
       acNextStep, iProgressBar,
       indeterminate, acUpdateContext,
-      acNavigate, navigation
+      navigation
     } = this.props;
 
     const StepsSetup = [
