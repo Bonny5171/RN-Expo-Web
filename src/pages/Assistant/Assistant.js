@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import { LinearGradient } from 'expo';
 import { connect } from 'react-redux';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import global from '../../assets/styles/global';
 import { Steps, SimpleButton } from '../../components';
 import * as assistantActions from '../../actions/pages/assistant';
@@ -53,11 +54,12 @@ class Assistant extends React.PureComponent {
   }
 
   render() {
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
-      <View style={{ flex: 1 }}>
+      <ImageBackground style={{ flex: 1 }} source={background} resizeMode="cover">
         <Header />
         {this._renderBody()}
-      </View>
+      </ImageBackground>
     );
   }
 
@@ -145,6 +147,7 @@ const mapStateToProps = state => (
     stores: state.assistant.stores,
     dropdown: state.assistant.dropdown,
     data: state.clients.data,
+    context: state.global.context,
   }
 );
 

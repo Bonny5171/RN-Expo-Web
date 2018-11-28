@@ -1,8 +1,9 @@
 import { LinearGradient } from 'expo';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
 import { WebBrowser, FileSystem } from 'expo';
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
 import { Conclusion, FirstSetup, Steps, Media } from '../../components';
@@ -66,7 +67,7 @@ class Setup extends React.Component {
 
   render() {
     const {
-      steps, screen,
+      steps, screen, context,
       acNextStep, iProgressBar,
       indeterminate, acUpdateContext,
       acNavigate, navigation
@@ -77,9 +78,9 @@ class Setup extends React.Component {
       { id: 1, txtStyle: styles.txtStep, txtStep: 'Mídias' },
       { id: 2, txtStyle: styles.txtStep, txtStep: 'Conclusão' }
     ];
-
+    const background = context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
-      <View style={styles.container}>
+      <ImageBackground source={background} style={styles.container} resizeMode="cover">
         <View style={{ flex: 1.5 }}>
           <Text style={styles.titlePagina}>INÍCIO</Text>
           <Text style={[styles.sub_title_1, { paddingTop: 20 }]}>
@@ -116,7 +117,7 @@ class Setup extends React.Component {
             </View>
           </View>
         </View>
-      </View>
+      </ImageBackground>
     );
   }
 }
@@ -128,6 +129,7 @@ const mapStateToProps = state => ({
     indeterminate: state.setup.indeterminate,
     redirects: state.menu.redirects,
     toPage: state.menu.toPage,
+    context: state.global.context
   }
 );
 

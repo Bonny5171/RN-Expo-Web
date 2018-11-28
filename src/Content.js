@@ -49,13 +49,13 @@ class Content extends React.Component {
     
     if (!this.state.fontLoaded) return <View/>;
     return (
-      <ImageBackground source={background} style={{ flex: 1, flexDirection: 'row' }} resizeMode="cover">
+      <View style={{ flex: 1, flexDirection: 'row' }}>
         <StatusBar hidden />
         <Menu oauth={oauth} jsforce={jsforce} navigation={navigation} />
         <View style={{ flex: 1, flexDirection: 'column' }}>
-          <Stack navigation={navigation} {...this.props} />
+          <Stack navigation={navigation} {...this.props} background={background}/>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }

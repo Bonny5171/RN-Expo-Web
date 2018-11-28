@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-
+import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import * as reducersClientes from '../../actions/pages/clients';
 import * as reducersMenu from '../../actions/pages/menu';
 
@@ -46,9 +46,9 @@ class Client extends React.Component {
         current = extraInfoScreens[i];
       }
     }
-
+    const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
-      <View style={{ flex: 1 }}>
+      <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
         <ScrollView contentContainerStyle={{ height: 1700 }}>
           <View style={styles.header}>
             <View style={{ flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
@@ -93,7 +93,7 @@ class Client extends React.Component {
           {/* Histório de Descontos */}
           <View style={{ flex: 2 }} />
         </ScrollView>
-      </View>
+      </ImageBackground>
     );
   }
 }
