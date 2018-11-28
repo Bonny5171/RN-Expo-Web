@@ -5,8 +5,9 @@ import { Provider } from 'react-redux';
 import Content from './Content';
 import reducers from './reducers';
 import iconFontStyles from './assets/styles/iconFontStyles';
-import * as SrvClients from './services/SGDLSqlite/Clients';
+import Expo from 'expo';
 
+// Importacao das fontes para Web-Eletron.
 if (Platform.OS === 'web') {
   const style = document.createElement('style');
   style.type = 'text/css';
@@ -22,12 +23,21 @@ if (Platform.OS === 'web') {
 
 const store = createStore(reducers);
 class App extends React.Component {
+  componentDidMount() {
+    if (Platform.OS !== 'web')
+      Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE_RIGHT);
+  }
+
+  componentWillUnmount() {
+    if (Platform.OS !== 'web')
+      Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
+  }
+
   render() {
     return (
       <Provider store={store}>
         <Content
           {...this.props}
-          {...SrvClients}
         />
       </Provider>
     );
