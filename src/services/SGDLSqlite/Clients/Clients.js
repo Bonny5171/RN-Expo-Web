@@ -12,6 +12,7 @@ const db = SQLite.openDatabase(dbName);
 const fetch = async (cb) => {
   const query = squel.select()
         .from('sf_account')
+        .order("sf_name")
         .toString();
 
   db.transaction(
@@ -27,7 +28,7 @@ const fetch = async (cb) => {
               phone2: item.sf_phone,
               contact: item.sf_name,
               client: item.sf_name,
-              code: item.id,
+              code: '',
               situation: 'Liberado',
               sector: 'Primeiro',
               positivation: '',
@@ -170,7 +171,7 @@ const filter = async (param, cb) => {
               phone2: item.sf_phone,
               contact: item.sf_name,
               client: item.sf_name,
-              code: item.id,
+              code: '',
               situation: 'Liberado',
               sector: 'Primeiro',
               positivation: '',
