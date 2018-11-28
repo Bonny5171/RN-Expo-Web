@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, Image, TouchableOpacity } from 'react-native';
+import { companyIcon } from '../../../assets/imgs';
 import { Button, Row } from '../..';
 import global from '../../../assets/styles/global';
 const { height } = Dimensions.get('window');
@@ -109,24 +110,16 @@ class AdminMenu extends React.PureComponent {
           </View>
           {/* Footer */}
           <View style={{ flex: 0.5, alignItems: 'center' }}>
-            <Button
-              txtStyle={[global.menuIcon, { marginTop: 37, marginRight: 5 }]}
-              txtMsg="8"
-              actions={[
-                {
-                  func: navigation.navigate,
-                  params: ['catalog']
-                },
-                {
-                  func: acUpdateContext,
-                  params: ['Vendedor'],
-                },
-                {
-                  func: acResetNavigation,
-                  params: ['admin']
-                }
-              ]}
-            />
+            <TouchableOpacity
+              style={{ marginTop: 37 }}
+              onPress={() => {
+                navigation.navigate('catalog');
+                acUpdateContext('Vendedor');
+                acResetNavigation('admin');
+              }}
+            >
+              <Image style={{ height: 40, width: 40 }}source={companyIcon} resizeMode="contain" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

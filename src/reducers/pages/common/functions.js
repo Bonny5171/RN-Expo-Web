@@ -50,3 +50,18 @@ export const nextStep = (steps) => {
     }
   return newSteps;
 };
+
+export const previousStep = (steps) => {
+  const newSteps = [...steps];
+    for (let i = 0; i < newSteps.length - 1; i += 1) {
+      // Caso seja o passo atual,
+      // O atual se tornará falso
+      // O seguinte será true ( que é considerado como atual )
+      if (newSteps[i]) {
+        newSteps[i] = false;
+        newSteps[i - 1] = true;
+        break;
+      }
+    }
+  return newSteps;
+};

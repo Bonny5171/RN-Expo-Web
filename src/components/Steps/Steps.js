@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { array } from 'prop-types';
 
 class Steps extends React.PureComponent {
   render() {
-    const { componentValues, steps } = this.props;
+    const { componentValues, steps, returnableSteps } = this.props;
+
+    if(returnableSteps) {
+      return (this._returnableSteps());
+    }
+
     const valuesMapped = componentValues.map((values, i) => {
         const indice = i + 1;
         return (
@@ -15,6 +20,41 @@ class Steps extends React.PureComponent {
               {indice + '. ' + values.txtStep}
             </Text>
           </View>
+        );
+      }
+    );
+
+    return (
+      <View style={{ flexDirection: 'row', marginTop: 15 }}>
+        {valuesMapped}
+      </View>
+    );
+  }
+
+  _returnableSteps() {
+    const {
+      componentValues,
+      steps,
+      prevSteps,
+      acPreviousStep,
+    } = this.props;
+    const valuesMapped = componentValues.map((values, i) => {
+        let dynamicStyles =  { color: steps[i] ? 'black' : '#999' };
+        if(prevSteps[i + 1] && !steps[i]) dynamicStyles = { ...dynamicStyles, borderBottomWidth: 1, borderBottomColor: '#999' };
+        const indice = i + 1;
+        return (
+          <TouchableOpacity
+            key={i.toString()}
+            onPress={() => acPreviousStep(i)}
+          >
+            <View key={values.id} style={values.vwStep}>
+              <Text
+                style={[values.txtStyle, dynamicStyles]}
+              >
+                {indice + '. ' + values.txtStep}
+              </Text>
+            </View>
+          </TouchableOpacity>
         );
       }
     );

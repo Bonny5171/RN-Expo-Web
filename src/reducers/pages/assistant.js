@@ -1,8 +1,9 @@
-import { nextStep } from './common/functions';
+import { nextStep, previousStep } from './common/functions';
 
 const INITIAL_STATE = {
   screen: 0,
   steps: [true, false, false, false],
+  prevSteps: [true, false, false, false, false],
   checkboxes: [false, false],
 
   // Vetor de lojas para Aba Visitar Cliente, passo 2
@@ -17,10 +18,26 @@ export default (state = INITIAL_STATE, action) => {
     case 'next_step_assistant': {
       const steps = nextStep(state.steps);
       let { screen } = state;
+      
       if (state.screen < steps.length) {
         screen += 1;
       }
-      return { ...state, steps, screen };
+      
+      const prevSteps = nextStep(state.prevSteps);
+      return { ...state, steps, screen, prevSteps };
+    }
+    case 'previous_step_assistant': {
+      const steps = previousStep(state.steps);
+      
+      if(action.index === 0 && state.steps[action.index]) return state;
+      let { screen } = state;
+      
+      if (state.screen < steps.length) {
+        screen -= 1;
+      }
+      
+      const prevSteps = previousStep(state.prevSteps);
+      return { ...state, steps, screen, prevSteps };
     }
     case 'checkbox': {
       // Lógica para funcionar com radio group
