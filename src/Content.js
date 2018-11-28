@@ -12,6 +12,7 @@ const Stack = StackNavigator(Routes,
     initialRouteName: 'setup',
     headerMode: 'none',
     transparentCard: true,
+    transitionConfig: RightToLeft
   }
 );
 
