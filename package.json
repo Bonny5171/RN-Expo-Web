@@ -9,7 +9,7 @@
     "test": "node_modules/.bin/jest",
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-path .gitignore .",
-    "lint:fix": "eslint --ignore-path .gitignore . --fix",
+    "lint:fix": "eslint --ignore-path .gitignore . --fix"
   },
   "lint-staged": {
     "*.js": [
