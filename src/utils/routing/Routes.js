@@ -1,3 +1,4 @@
+import Main from '../../screens/Main';
 import {
     Setup, Assistant,
     Campaigns, Catalog,
@@ -7,6 +8,9 @@ import {
 } from '../../pages';
 
 export default MainRoutes = {
+    main: {
+        screen: Main
+    },
     setup: {
         screen: Setup
     },
