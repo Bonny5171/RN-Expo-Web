@@ -78,13 +78,13 @@ class Clients extends React.Component {
           </Row>
           <Row style={{ justifyContent: 'flex-end' }}>
             <TouchableOpacity style={styles.tchbList} onPress={() => acUpdateList()} >
-              <Text style={styles.icList}>
-                {
-                  list
-                    ? '['
-                    : ']'
-                }
-              </Text>
+                <Text style={styles.icList}>
+                  {
+                    list
+                      ? '['
+                      : ']'
+                  }
+                </Text>
             </TouchableOpacity>
           </Row>
         </View>
@@ -222,10 +222,13 @@ let styles = StyleSheet.create({
     backgroundColor: '#DDD',
     height: 25,
     width: 31,
+    paddinRight: 8, 
     marginRight: 24,
     marginTop: 5,
   },
   icList: {
+    position: 'absolute',
+    right: 6, 
     fontFamily: Font.C,
     fontSize: 35,
     textAlign: 'center',
