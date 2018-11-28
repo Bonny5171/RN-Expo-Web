@@ -16,7 +16,7 @@ class AdminMenu extends React.PureComponent {
       acUpdateButtons,
       acResetSubMenu,
     } = this.props;
-    console.log(navigation !== undefined);
+
     // As keys sao as mesmas posições do vetor na store
     // Icones do menu de vendedores
     const iconsValues = [

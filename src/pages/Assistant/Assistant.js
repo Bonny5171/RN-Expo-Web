@@ -53,8 +53,6 @@ class Assistant extends React.PureComponent {
   }
 
   render() {
-
-    console.log('assistant');
     return (
       <View style={{ flex: 1 }}>
         <Header />
