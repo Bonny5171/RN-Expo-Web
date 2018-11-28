@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, Platform } from 'react-native';
 import { LinearGradient } from 'expo';
 import { connect } from 'react-redux';
 import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
@@ -11,9 +11,12 @@ import { acSearchClient, acCurrentClient, acUpdateStores } from '../../actions/p
 import { CheckOption, DefineClient, Header } from './components';
 import * as SrvClients from '../../services/SGDLSqlite/Clients';
 
-class Assistant extends React.PureComponent {
+class Assistant extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isInputActive: false
+    };
     this.steps = [
       {
         id: 0,
@@ -40,6 +43,7 @@ class Assistant extends React.PureComponent {
       'Catálogo (com opção de gerar pedido)',
       'Mostruário (somente vizualização)'
     ];
+    this.toggleInput = this.toggleInput.bind(this);
   }
 
   componentDidMount() {
@@ -53,12 +57,38 @@ class Assistant extends React.PureComponent {
     this.props.acResetAssistant();
   }
 
+  componentDidUpdate() {
+    if (this.state.isInputActive) {
+      this.scrollView.scrollTo({ y: 230 }); 
+    } else {
+      this.scrollView.scrollTo({ y: 0 }); 
+    }
+  }
+
   render() {
     const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
+    if(Platform.OS === 'web') {
+      return (
+        <ImageBackground style={{ flex: 1 }} source={background} resizeMode="cover">
+            <Header />
+            {this._renderBody()}
+        </ImageBackground>
+      );
+    }
+
     return (
       <ImageBackground style={{ flex: 1 }} source={background} resizeMode="cover">
-        <Header />
-        {this._renderBody()}
+        <ScrollView
+          style={{ flex: 1 }}
+          scrollEnabled={false}
+          showsVerticalScrollIndicator={false}
+          ref={(ref) => this.scrollView = ref}
+        >
+          <View style={{ height: 1100 }}>
+            <Header />
+            {this._renderBody()}
+          </View>
+        </ScrollView>
       </ImageBackground>
     );
   }
@@ -84,6 +114,7 @@ class Assistant extends React.PureComponent {
     const screens = [
       checkBoxes,
       <DefineClient
+        toggleInput={this.toggleInput}
         srvClients={SrvClients.srvClients}
         {...this.props}
       />
@@ -134,6 +165,13 @@ class Assistant extends React.PureComponent {
         </View>
       </View>
     );
+  }
+
+  toggleInput() {
+    console.log('toggle');
+    this.setState({
+      isInputActive: !this.state.isInputActive
+    });
   }
 }
 

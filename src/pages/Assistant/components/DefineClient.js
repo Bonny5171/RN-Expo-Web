@@ -22,7 +22,6 @@ class DefineClient extends React.Component {
       acToggleDropdown
     } = this.props;
     const { filter } = srvClients;
-
     return (
       <View style={styles.container}>
         <View style={{ flex: 1, paddingTop: 8 }}>
@@ -30,6 +29,9 @@ class DefineClient extends React.Component {
             label="PROCURE POR NOME OU CÓDIGO"
             value={this.state.inputClient}
             inputStyle={styles.input}
+            ref={(ref)=>{this.myTextInput = ref}}
+            onFocus={() => this.props.toggleInput()}
+            onBlur={() => this.props.toggleInput()}
             onChangeText={(value) => {
               filter({
                   name: value,
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 600,
+    paddingLeft: 10,
     backgroundColor: '#F3F4F6',
   },
 });
