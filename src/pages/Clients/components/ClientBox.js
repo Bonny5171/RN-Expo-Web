@@ -25,7 +25,7 @@ class ClientBox extends React.Component {
           style={{ flex: 1 }}
           onPress={() => {
             acCurrentClient(item);
-            acNavigate('client');
+            this.props.navigation.navigate('client');
           }}
           activeOpacity={0.8}
           animationVelocity={1}

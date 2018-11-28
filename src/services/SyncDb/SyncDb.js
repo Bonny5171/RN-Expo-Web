@@ -23,7 +23,7 @@ const processDownload = async (args, changePorcent, changeIndeterminate) => {
   try {
     downloadResumable = FileSystem.createDownloadResumable(
       url, // `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
-      FileSystem.documentDirectory + '/SQLite/' + dbName,
+      FileSystem.documentDirectory + 'SQLite/' + dbName,
       {},
       (downloadProgress) => {
         const progress =
