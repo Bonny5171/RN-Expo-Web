@@ -169,10 +169,10 @@ class Assistant extends React.Component {
                   if (client.name !== '') {
                     acNextStep();
                     acUpdateStores(stores);
-                  }
-                  if(apresentacao) {
-                    navigation.navigate('catalog');
-                    acUpdateContext('Vendedor');
+                    if(apresentacao) {
+                      navigation.navigate('catalog');
+                      acUpdateContext('Vendedor');
+                    }
                   }
                 } else {
                   acNextStep();
