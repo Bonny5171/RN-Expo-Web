@@ -9,7 +9,7 @@ class Orders extends React.Component {
     const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
       <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
-        <Text style={global.titlePagina}>Página de PEDIDOS em desenvolvimento</Text>
+        <Text style={global.titlePagina}>PEDIDOS</Text>
       </ImageBackground>
     );
   }

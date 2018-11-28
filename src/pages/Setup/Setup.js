@@ -77,7 +77,10 @@ class Setup extends React.Component {
                   <Media
                     nextStep={acNextStep}
                     iProgressBar={iProgressBar}
-                    actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: navigation.replace, params: ['assistant'] }]}
+                    actions={[{ func: acUpdateContext, params: ['Admin'] }, {
+                      func: navigation.replace,
+                      params: ['assistant']
+                    }]}
                   />,
                   <Conclusion actions={[{ func: acUpdateContext, params: ['Admin'] }, { func: navigation.replace, params: ['assistant'] }]} />
                 ][screen]

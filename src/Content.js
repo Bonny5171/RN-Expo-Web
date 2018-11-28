@@ -6,11 +6,12 @@ import { Font } from 'expo'
 import { Menu } from './components';
 import { backgroundVendor, backgroundAdmin } from './assets/imgs';
 import Routes from './utils/routing/Routes';
+import { RightToLeft } from './utils/routing/Transitions';
 const Stack = StackNavigator(Routes,
   {
     initialRouteName: 'setup',
     headerMode: 'none',
-    transparentCard: true
+    transparentCard: true,
   }
 );
 

@@ -9,7 +9,7 @@ class Campaigns extends React.Component {
     const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
       <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
-        <Text style={global.titlePagina}>Página de CAMPANHAS em desenvolvimento</Text>
+        <Text style={global.titlePagina}>CAMPANHAS</Text>
       </ImageBackground>
     );
   }

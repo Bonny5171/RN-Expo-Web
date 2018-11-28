@@ -9,7 +9,7 @@ class Prices extends React.Component {
     const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
     return (
       <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
-        <Text style={global.titlePagina}>Página de PREÇOS em desenvolvimento</Text>
+        <Text style={global.titlePagina}>PREÇOS</Text>
       </ImageBackground>
     );
   }
