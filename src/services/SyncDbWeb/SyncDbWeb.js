@@ -7,7 +7,7 @@ const processDownload = async (args, changePorcent, changeIndeterminate) => {
   const nameDb = `sfa-${nome}`;
   const url = `${host}${version}${path.db}`;
 
-  window.webSqlManager.on('downloadProgress', (status) => {
+  window.webSqlManager.on(`${nameDb}::downloadProgress`, (status) => {
 
     console.log('NOME', nome);
     const percentage = (status.percent / 100).toFixed(2);

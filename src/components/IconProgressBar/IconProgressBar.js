@@ -53,12 +53,16 @@ export default ({
         indeterminate={indeterminate}
         color={color}
       />
-      <Text style={{
-          fontFamily: Font.ARegular, marginTop: 10, color: '#999'
-        }}
-      >
-        {porcentagem}%
-      </Text>
+      {
+        !indeterminate 
+          ? <Text style={{
+                  fontFamily: Font.ARegular, color: '#999'
+                }}
+              >
+                {porcentagem}%
+              </Text>
+          : <Text/>
+      }
     </View>
   );
 };

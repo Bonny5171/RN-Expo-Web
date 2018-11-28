@@ -1,8 +1,8 @@
 import { LinearGradient } from 'expo';
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Platform, View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { WebBrowser, FileSystem } from 'expo';
+import { FileSystem } from 'expo';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
 import { Conclusion, FirstSetup, Steps, Media } from '../../components';
@@ -21,40 +21,15 @@ class Setup extends React.Component {
   }
 
   async componentDidMount() {
-    await this._handleDownLoadDb('sfa-account.db', 'account');
-    await this._handleDownLoadDb('sfa-product.db', 'product');
-    await this._handleDownLoadDb('sfa-resource.db', 'resource');
-    await this._handleDownLoadDb('sfa-setup.db', 'setup');
-  }
+    const { onSync, onSyncUpdate } = Platform.OS === 'web'
+      ? require('../../services/SyncDbWeb')
+      : require('../../services/SyncDb')
 
-  async _handleDownLoadDb(dbName, srvName) {
-    try {
-      downloadResumable = FileSystem.createDownloadResumable(
-        `https://everysfaenvs.z5.web.core.windows.net/${dbName}`,
-        FileSystem.documentDirectory + '/SQLite/' + dbName,
-        {},
-        downloadProgress => {
-          const progress =
-            downloadProgress.totalBytesWritten /
-            downloadProgress.totalBytesExpectedToWrite;
-          
-          console.log('Status do download: ', progress)
-
-          const objStr = `{ "${srvName}": ${progress} }`;
-          const obj = JSON.parse(objStr);
-          changePorcent(obj);
-      
-          const objIndeterminate = `{ "${srvName}": false }`;
-          const objInt = JSON.parse(objIndeterminate);
-          changeIndeterminate(objInt); 
-        }
-      );
-
-      const { uri } = await downloadResumable.resumeAsync();
-      console.log('Finished downloading to ', uri);
-    } catch (e) {
-      console.error(e);
-    }
+    const {changePorcent, changeIndeterminate } = this.props;
+    onSync({ service: 'account', changePorcent, changeIndeterminate });
+    onSync({ service: 'product', changePorcent, changeIndeterminate });
+    onSync({ service: 'resource', changePorcent, changeIndeterminate });
+    onSync({ service: 'setup', changePorcent, changeIndeterminate });
   }
 
   render() {

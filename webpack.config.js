@@ -85,13 +85,13 @@ const ttfLoaderConfiguration = {
 
 module.exports = {
   // your web-specific entry file
-  entry: path.resolve(appDirectory, 'src/index.js'),
+  entry: path.resolve(appDirectory, 'src/index.web.js'),
   devtool: 'cheap-module-source-map',
 
   // configures where the build ends up
   output: {
     filename: 'bundle.js',
-    publicPath: '/assets/',
+    publicPath: 'assets/',
     path: path.resolve(appDirectory, './public/assets'),
   },
 

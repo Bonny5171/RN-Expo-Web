@@ -58,7 +58,7 @@ export default (state = INITIAL_STATE, action) => {
           newiProgressBar.account === 1 &&
           newiProgressBar.resource === 1) {
         steps = [false, true, false];
-        screen = 1;
+          screen = 1;
       }
 
       return {
