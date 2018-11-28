@@ -5,15 +5,17 @@ import { Button, Row } from '../../../components';
 import { Font } from '../../../assets/fonts/font_names';
 import ClientField from './ClientField';
 
-class ExtraInfo extends React.Component {
-  shouldComponentUpdate(nextProps) {
-    if (this.props.client.name === nextProps.client.name) {
-      return false;
-    }
-    return true;
-  }
+class ExtraInfo extends React.PureComponent {
+ 
   render() {
-    const { client, acNextInfo, acPreviousInfo } = this.props;
+    const {
+      infos,
+      title,
+      labels,
+      acNextInfo,
+      acPreviousInfo,
+    } = this.props;
+    
     return (
       <View style={{ flex: 3, backgroundColor: '#EEEEEE60' }}>
         {/* Este primeiro flex será dinâmico para as outros dados de extra info maiores, com mais colunas */}
@@ -30,14 +32,14 @@ class ExtraInfo extends React.Component {
           </View>
           <View style={{ flex: 6 }}>
             <View style={{ flex: 1.5, justifyContent: 'center' }}>
-              <Text style={styles.title}>INFORMAÇÕES FINANCEIRAS</Text>
+              <Text style={styles.title}>{title}</Text>
             </View>
             <View style={{ flex: 3.5, paddingTop: 10 }}>
               <Row style={{ flex: 1, justifyContent: 'space-around' }}>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="LIMITE DE CRÉDITO"
-                    msg={client.credit}
+                    label={labels[0]}
+                    msg={infos[0]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
@@ -46,8 +48,8 @@ class ExtraInfo extends React.Component {
                 </View>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="PEDIDOS APROVADOS"
-                    msg={client.approved}
+                    label={labels[1]}
+                    msg={infos[1]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
@@ -56,8 +58,8 @@ class ExtraInfo extends React.Component {
                 </View>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="PEDIDOS FATURADOS"
-                    msg={client.billed}
+                    label={labels[2]}
+                    msg={infos[2]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
@@ -68,8 +70,8 @@ class ExtraInfo extends React.Component {
               <Row style={{ flex: 1, justifyContent: 'space-around', paddingTop: 10 }}>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="LIMITE DE CRÉDITO"
-                    msg={client.credit}
+                    label={labels[3]}
+                    msg={infos[3]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
@@ -78,8 +80,8 @@ class ExtraInfo extends React.Component {
                 </View>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="PEDIDOS APROVADOS"
-                    msg={client.approved}
+                    label={labels[4]}
+                    msg={infos[4]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
@@ -88,8 +90,8 @@ class ExtraInfo extends React.Component {
                 </View>
                 <View style={styles.flexOne}>
                   <ClientField
-                    label="PEDIDOS FATURADOS"
-                    msg={client.billed}
+                    label={labels[5]}
+                    msg={infos[5]}
                     container={styles.flexOne}
                     vwLabel={{ flex: 0.8 }}
                     vwText={styles.flexOne}
