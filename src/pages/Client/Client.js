@@ -42,8 +42,8 @@ class Client extends React.Component {
       <ExtraInfo
         // Descontosrr
         title="DESCONTOS"
-        labels={['1º DESCONTO', '2º DESCONTO', '3º DESCONTO', '4º DESCONTO', '5º DESCONTO', '6º DESCONTO']}
-        infos={['20%', '10%', '50%', '15%', '85%', '75%',]}
+        labels={['1º DESCONTO', '2º DESCONTO', '3º DESCONTO', '4º DESCONTO', '', '']}
+        infos={['20%', '10%', '50%', '75%', '', '',]}
         {...this.props}
       />,
     ];
