@@ -63,7 +63,7 @@ class Client extends React.Component {
             <View style={{ flex: 1, alignSelf: 'flex-start', flexDirection: 'row' }}>
               {
                 this.props.context === 'Admin'
-                  ? <Button txtStyle={styles.backArrow} action={() => acNavigate('clients')} txtMsg="v" />
+                  ? <Button txtStyle={styles.backArrow} action={() => this.props.navigation.navigate('clients')} txtMsg="v" />
                   : null
               }
               <Title msg="CLIENTE" style={{ marginLeft: this.props.context === 'Admin' ? 10 : 35 }} />
