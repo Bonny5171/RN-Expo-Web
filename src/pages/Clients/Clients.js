@@ -126,6 +126,7 @@ class Clients extends React.Component {
           <FilterPopUp
             isVisible={this.props.buttons[1].isChosen}
             {...this.props}
+            {...SrvClients}
           />
         </Fade>
       </ImageBackground>
