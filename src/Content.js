@@ -8,6 +8,7 @@ import { backgroundVendor, backgroundAdmin } from './assets/imgs';
 import Routes from './utils/routing/Routes';
 const Stack = createStackNavigator(Routes,
   {
+    // initialRouteName: 'main',
     initialRouteName: 'setup',
     headerMode: 'none',
     transparentCard: true
