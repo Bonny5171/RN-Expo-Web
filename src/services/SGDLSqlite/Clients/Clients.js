@@ -159,7 +159,7 @@ const filter = async (param, cb) => {
 
   db.transaction(
     tx => {
-      tx.executeSql(query, [], (_, { rows }) => {
+      tx.executeSql(query.toString(), [], (_, { rows }) => {
           const data = rows._array.map((item) => {
             return {
               key: item.id,
