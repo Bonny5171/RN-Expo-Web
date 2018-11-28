@@ -60,6 +60,7 @@ class Menu extends React.Component {
 export const styles = StyleSheet.create({
   container: {
     flex: 0.12,
+    zIndex: 6,
     maxWidth: Platform.OS === 'web' ? '4.5%' : '9%',
     minWidth: 100,
     elevation: 7,

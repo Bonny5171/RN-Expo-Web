@@ -111,7 +111,7 @@ class AdminMenu extends React.PureComponent {
           {/* Footer */}
           <View style={{ flex: 0.5, alignItems: 'center' }}>
             <TouchableOpacity
-              style={{ marginTop: 37 }}
+              style={{ marginTop: 30 }}
               onPress={() => {
                 navigation.navigate('catalog');
                 acUpdateContext('Vendedor');
