@@ -31,15 +31,12 @@ class FastSelection extends React.PureComponent {
             {...this.props}
             eventHandler={(item) => {
               const carts = this.props.carts.map((asd) => {
-                debugger
                 if (item.key == asd.key) {
-                  console.log('localizado');
                   asd.selected = !item.selected;
                 }
                 return asd;
               })
 
-              //console.log('carts', carts)
               this.props.acDefineCarrinhoSelecionado({ carts });
 
               // abre o assistente de selecao
@@ -97,6 +94,11 @@ class FastSelection extends React.PureComponent {
             onPress={() => {
               this.props.acSelectOpt({ selectOpt: !this.props.selectOpt });
               this.props.acBtnMais({ btnMais: !this.props.btnMais });
+
+              if (this.props.resumoCar) {
+                this.props.acOpenCart({ resumoCar: !this.props.resumoCar });
+                this.props.acCarrinho({ btnCarrinho: !this.props.btnCarrinho });
+              } 
             }
           }>
             <View style={[styles.circle, { justifyContent: 'center', alignItems: 'center' }]}>
