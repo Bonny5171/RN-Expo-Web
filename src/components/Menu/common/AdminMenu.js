@@ -60,6 +60,8 @@ class AdminMenu extends React.PureComponent {
     ];
 
     const icons = iconsValues.map((curr) => {
+      // Se o botão estiver ativo, ele não deve navegar
+      const func = !admin[curr.key].isChosen ? navigation.navigate : () => null;
       const button = (
         <Button
           turnOffOpacity
@@ -74,7 +76,7 @@ class AdminMenu extends React.PureComponent {
           action={acResetSubMenu}
           isChosen={admin[curr.key].isChosen}
           actions={[
-            { func: navigation.navigate, params: [curr.name]}
+            { func , params: [curr.name]}
           ]}
           changeColor
           chosenColor="#0085B2"

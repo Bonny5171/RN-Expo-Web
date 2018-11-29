@@ -9,7 +9,7 @@ import Routes from './utils/routing/Routes';
 import { RightToLeft } from './utils/routing/Transitions';
 const Stack = StackNavigator(Routes,
   {
-    initialRouteName: 'client',
+    initialRouteName: 'clients',
     headerMode: 'none',
     transparentCard: true,
     transitionConfig: RightToLeft
