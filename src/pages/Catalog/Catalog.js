@@ -160,7 +160,11 @@ class Catalog extends React.Component {
           }}
         >
           <DropDownView
-            vwStyle={{ width: 220 }}
+            vwStyle={{ width: 220,
+              marginLeft: Platform.OS === 'ios' 
+                ? 4
+                : 0,
+            }}
             isVisible
             options={carts}
             {...this.props}
