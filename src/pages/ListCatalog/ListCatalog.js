@@ -4,20 +4,21 @@ import { connect } from 'react-redux';
 import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { SubMenu } from '../../components';
 import { acToggleExpanded } from '../../actions/pages/catalog';
-import { acUpdateButtons, acSubMenuCatalog, acSubMenuIcon, acNavigate } from '../../actions/pages/menu';
+import { acUpdateButtons, acSubMenuCatalog, acSubMenuIcon } from '../../actions/pages/menu';
+import global from '../../assets/styles/global';
 
 class ListCatalog extends React.Component {
   render() {
     const {
       subMenuCatalog, isCatalogActive, catalogMenuItems,
-      acUpdateButtons, acNavigate, acSubMenuIcon, acSubMenuCatalog,
+      acUpdateButtons, navigation, acSubMenuIcon, acSubMenuCatalog,
       acToggleExpanded
     } = this.props;
     const background = this.props.context === 'Vendedor' ? backgroundVendor : backgroundAdmin;
 
     return (
       <ImageBackground source={background} style={{ flex: 1 }} resizeMode="cover">
-        <Text>CATÁLOGO EM LISTAGEM</Text> 
+        <Text style={global.titlePagina}>LISTAGEM</Text>
         {
           subMenuCatalog ?
             <SubMenu
@@ -25,7 +26,7 @@ class ListCatalog extends React.Component {
               visible
               items={catalogMenuItems}
               updateButton={acUpdateButtons}
-              acNavigate={acNavigate}
+              navigation={navigation}
               acSubMenuIcon={acSubMenuIcon}
               acSubMenuCatalog={acSubMenuCatalog}
               params={['vendor', 'catalog']}
@@ -49,7 +50,6 @@ const mapStateToProps = state => (
 export default connect(mapStateToProps,
   {
     acUpdateButtons,
-    acNavigate,
     acSubMenuIcon,
     acSubMenuCatalog,
     acToggleExpanded

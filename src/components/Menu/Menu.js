@@ -85,7 +85,6 @@ const mapStateToProps = state => ({
   admin: state.menu.admin,
   subMenuCatalog: state.menu.subMenuCatalog,
   subMenuIcon: state.menu.subMenuIcon,
-  toPage: state.menu.toPage,
 });
 
 export default connect(mapStateToProps,

@@ -17,7 +17,7 @@ class ClientBox extends React.Component {
       marginLeft = this.props.index % 7 === 0 ? 0 : 20;
     }
 
-    const { item, acCurrentClient, acNavigate } = this.props;
+    const { item, acCurrentClient } = this.props;
 
     return (
       <View style={[styleCB.vwClientBox, { marginLeft }]}>

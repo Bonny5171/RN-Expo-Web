@@ -61,87 +61,19 @@ const INITIAL_STATE = {
       key: 2, icon: 'I', txt: 'LISTAGEM', params: 'listCatalog'
     }
   ],
-
-  toPage: '/',
-
-  // A flag redirect controla se a pagina deve redirecionar
-  // Para adicionar uma rota nova coloque no final do vetor
-  redirects: [
-    {
-      name: '/catalog',
-      redirect: false,
-    },
-    {
-      name: '/orders',
-      redirect: false,
-    },
-    {
-      name: '/campaigns',
-      redirect: false,
-    },
-    {
-      name: '/client',
-      redirect: false,
-    },
-    {
-      name: '/listCatalog',
-      redirect: false,
-    },
-    { // Posição 5
-      name: '/clients',
-      redirect: false
-    },
-    // Área ADM
-    {
-      name: '/dashboard',
-      redirect: false,
-    },
-    {
-      name: '/assistant',
-      redirect: false
-    },
-    { // Posição 8
-      name: '/price',
-      redirect: false
-    },
-    {
-      name: '/orders',
-      redirect: false
-    },
-    {
-      name: '/', // Setup
-      redirect: false,
-    },
-  ]
 };
 
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'navigate': {
-      const newState = [...state];
-
-      newState.redirects = updateRedirects(action.toPage, state.redirects);
-      newState.toPage = '/' + action.toPage;
-
-      return { ...state, ...newState };
-    }
     case 'update_vendor': {
       const newState = [...state];
-
       newState.vendor = updateButtons(action.name, [...state.vendor]);
-      newState.redirects = updateRedirects(action.name, state.redirects);
-      newState.toPage = '/' + action.name;
-
       return { ...state, ...newState };
     }
     case 'update_admin': {
       const newState = { ...state };
-
       newState.admin = updateButtons(action.name, [...state.admin]);
-      newState.redirects = updateRedirects(action.name, state.redirects);
-      newState.toPage = '/' + action.name;
-
       return { ...state, ...newState };
     }
     case 'submenu_catalog': {

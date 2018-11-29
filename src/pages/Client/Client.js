@@ -22,7 +22,6 @@ class Client extends React.Component {
       extraInfo,
       acCartButton,
       client,
-      acNavigate,
     } = this.props;
 
     const extraInfoScreens = [

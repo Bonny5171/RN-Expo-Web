@@ -5,12 +5,12 @@ import { Row, Fade } from '..';
 
 const SubMenu = (
   {
+    navigation,
     visible,
     items,
     acSubMenuCatalog,
     view,
     acSubMenuIcon,
-    acNavigate,
     acToggleExpanded
   }
 ) => {
@@ -20,13 +20,13 @@ const SubMenu = (
       item.actions = expandedActions;
     } else if (item.icon === '3') {
       const catalogActions = [
-        { func: acNavigate, params: [item.params] },
+        { func: navigation.navigate, params: [item.params] },
         { func: acToggleExpanded, params: [true] },
         { func: acSubMenuCatalog, params: [item.params] }
       ];
       item.actions = catalogActions;
     } else {
-      item.actions = [{ func: acNavigate, params: [item.params] }, { func: acSubMenuCatalog, params: [] }];
+      item.actions = [{ func: navigation.navigate, params: [item.params] }, { func: acSubMenuCatalog, params: [] }];
     }
     return item;
   });

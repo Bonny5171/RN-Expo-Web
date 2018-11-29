@@ -11,7 +11,6 @@ class AdminMenu extends React.PureComponent {
       container,
       admin,
       navigation,
-      acNavigate,
       acUpdateContext,
       acResetNavigation,
       acUpdateButtons,

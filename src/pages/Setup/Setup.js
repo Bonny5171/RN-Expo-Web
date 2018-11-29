@@ -8,7 +8,6 @@ import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '..
 import { acUpdateContext } from '../../actions/global';
 import { Conclusion, FirstSetup, Steps, Media } from '../../components';
 import styles from '../../assets/styles/global';
-import { acNavigate } from '../../actions/pages/menu';
 
 class Setup extends React.Component {
   constructor(props) {
@@ -99,11 +98,10 @@ const mapStateToProps = state => ({
     iProgressBar: state.setup.iProgressBar,
     indeterminate: state.setup.indeterminate,
     redirects: state.menu.redirects,
-    toPage: state.menu.toPage,
     context: state.global.context
   }
 );
 
 export default connect(mapStateToProps, {
- acNextStep, acNextScreen, changePorcent, changeIndeterminate, acUpdateContext, acNavigate
+ acNextStep, acNextScreen, changePorcent, changeIndeterminate, acUpdateContext
 })(Setup);

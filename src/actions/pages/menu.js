@@ -21,13 +21,6 @@ export const acSubMenuIcon = (payload) => {
   };
 };
 
-export const acNavigate = (toPage) => {
-  return {
-    type: 'navigate',
-    toPage
-  };
-};
-
 export const acResetNavigation = (type) => {
   return {
     type: `reset_navigation_${type}`
