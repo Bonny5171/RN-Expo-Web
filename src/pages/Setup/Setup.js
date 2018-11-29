@@ -2,7 +2,6 @@ import { LinearGradient } from 'expo';
 import React from 'react';
 import { Platform, View, Text, ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
-import { WebBrowser, FileSystem } from 'expo';
 import { backgroundVendor, backgroundAdmin } from '../../assets/imgs';
 import { acNextStep, acNextScreen, changePorcent, changeIndeterminate } from '../../actions/pages/setup';
 import { acUpdateContext } from '../../actions/global';
@@ -21,7 +20,7 @@ class Setup extends React.Component {
   }
 
   async componentDidMount() {
-    const { onSync, onSyncUpdate } = Platform.OS === 'web'
+    const { onSync } = Platform.OS === 'web'
       ? require('../../services/SyncDbWeb')
       : require('../../services/SyncDb')
 
@@ -103,5 +102,9 @@ const mapStateToProps = state => ({
 );
 
 export default connect(mapStateToProps, {
- acNextStep, acNextScreen, changePorcent, changeIndeterminate, acUpdateContext
+ acNextStep,
+ acNextScreen,
+ changePorcent,
+ changeIndeterminate,
+ acUpdateContext
 })(Setup);

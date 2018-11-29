@@ -6,20 +6,9 @@ import global from '../../../assets/styles/global';
 const { height } = Dimensions.get('window');
 
 class AdminMenu extends React.PureComponent {
-  render() {
-    const {
-      container,
-      admin,
-      navigation,
-      acUpdateContext,
-      acResetNavigation,
-      acUpdateButtons,
-      acResetSubMenu,
-    } = this.props;
-
-    // As keys sao as mesmas posições do vetor na store
-    // Icones do menu de vendedores
-    const iconsValues = [
+  constructor(props) {
+    super(props);
+    this.iconsValues = [
       {
         key: 0,
         name: 'dashboard',
@@ -56,9 +45,20 @@ class AdminMenu extends React.PureComponent {
         txtMsg: '4',
         txtStyle: global.menuIcon
       },
-    ];
+    ]
+  }
+  render() {
+    const {
+      container,
+      admin,
+      navigation,
+      acUpdateContext,
+      acResetNavigation,
+      acUpdateButtons,
+      acResetSubMenu,
+    } = this.props;
 
-    const icons = iconsValues.map((curr) => {
+    const icons = this.iconsValues.map((curr) => {
       // Se o botão estiver ativo, ele não deve navegar
       const func = !admin[curr.key].isChosen ? navigation.navigate : () => null;
       const button = (

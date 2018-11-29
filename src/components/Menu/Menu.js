@@ -14,18 +14,15 @@ class Menu extends React.Component {
     const {
       isLoggedIn,
       context,
-      oauth,
-      jsforce
     } = this.props;
 
-    const logoutFunction = Platform.OS === 'web' ? jsforce : oauth;
     if (context === 'Setup') {
       return (
         <View style={styles.container}>
           <Button
             txtStyle={styles.icSetup}
             txtMsg="2"
-            action={() => logout(logoutFunction)}
+            action={() => null}
           />
         </View>
       );
@@ -95,8 +92,3 @@ export default connect(mapStateToProps,
     acResetAssistant
   }
 )(Menu);
-
-const logout = (logoutFunction) => {
-  if (Platform.OS === 'web') { logoutFunction.browser.logout(); } else { logoutFunction.logout(); }
-};
-

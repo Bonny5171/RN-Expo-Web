@@ -280,6 +280,7 @@ export default StyleSheet.create({
     borderColor: '#999',
     marginTop: 15,
     paddingTop: 2,
+    paddingLeft: 20,
   },
   txtInput: {
     fontSize: 18,

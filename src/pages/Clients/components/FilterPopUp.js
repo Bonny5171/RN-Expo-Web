@@ -312,14 +312,14 @@ let styleDD = {
     },
     triangleSituation: {
       position: 'absolute',
-      marginLeft: 225,
+      marginLeft: 205,
       transform: [
         { rotate: '180deg' }
       ],
     },
     triangleSector: {
       position: 'absolute',
-      marginLeft: 467,
+      marginLeft: 447,
       transform: [
         { rotate: '180deg' }
       ],
@@ -436,12 +436,11 @@ if (Platform.OS === 'web') {
     vwDDVSector: {
       ...styleDDV.vwDDVSector,
       marginTop: 105,
-      marginLeft: 20,
     },
     vwDDVSituation: {
       ...styleDDV.vwDDVSituation,
       marginTop: -6,
-      marginLeft: 630
+      marginLeft: 610
     }
   };
 
