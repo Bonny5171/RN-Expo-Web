@@ -1103,10 +1103,27 @@ const INITIAL_STATE = {
   ponteiroProduto: ['', ''],
 
   produtosSelecionados: [],
+
+  // selecao rapida
+  btnMais: false,
+  btnEnvelope: false,
+  btnCarrinho: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'update_btn_mais': {
+      const { btnMais } = action.payload;
+      return { ...state, btnMais };
+    }
+    case 'update_btn_envelop': {
+      const { btnEnvelope } = action.payload;
+      return { ...state, btnEnvelope };
+    }
+    case 'update_btn_carrinho': {
+      const { btnCarrinho } = action.payload;
+      return { ...state, btnCarrinho };
+    }
     case 'update_buttons': {
       const buttons = updateComponent(action.name, state.buttons);
       return { ...state, buttons };
