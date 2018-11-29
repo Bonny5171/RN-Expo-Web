@@ -72,7 +72,7 @@ class SummaryEmail extends React.Component {
                 }}
               >
                 {/* Produto + Nome */}
-                <View style={{ flex: 3, maxWidth: 317 }}>
+                <View style={{ flex: 4, maxWidth: 390 }}>
                   <Text style={global.columnHeader}>{headerColumns[0]}</Text>
                 </View>
                 {/* Codigo */}

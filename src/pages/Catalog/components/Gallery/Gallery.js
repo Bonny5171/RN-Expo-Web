@@ -61,12 +61,13 @@ class Gallery extends React.Component {
             bottom: 30,
           }}
         >
+          {/* TODO: fix
           <View style={{ paddingLeft: 20, paddingBottom: 5 }}>
             <Text style={styles.tag1Giro}>NOVO</Text>
           </View>
           <View style={{ paddingLeft: 20 }}>
             <Text style={styles.tag2Giro}>1 GIRO</Text>
-          </View>
+        </View>*/}
           <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
             <TouchableOpacity
               activeOpacity={0.5}
