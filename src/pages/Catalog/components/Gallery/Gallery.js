@@ -48,7 +48,7 @@ class Gallery extends React.Component {
             currentProduct.gallery.map((item) => {
               return (
                 <TouchableOpacity
-                  style={{ height: 8, width: 8, borderRadius: 15, backgroundColor: '#999', margin: 6 }}
+                  style={{ height: 16, width: 16, borderRadius: 15, backgroundColor: '#999', margin: 6 }}
                   key={item.key}
                   onPress={() => acUpdateGallery(item.key)}
                 />

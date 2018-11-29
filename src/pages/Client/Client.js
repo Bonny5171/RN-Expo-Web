@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     color: 'rgba(102, 102, 102, 0.5)'
   },
   header: {
-    flex: 0.5,
+    flex: 0.8,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -163,6 +163,6 @@ const styles = StyleSheet.create({
     fontFamily: Font.C,
     color: '#999',
     marginRight: 40,
-    marginTop: 45
+    marginTop: 15
   },
 });
