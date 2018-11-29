@@ -68,7 +68,7 @@ class Client extends React.Component {
               }
               <Title msg="CLIENTE" style={{ marginLeft: this.props.context === 'Admin' ? 10 : 35 }} />
             </View>
-            <View style={{ flex: 1, alignSelf: 'flex-end', alignItems: 'flex-end' }}>
+            <View style={{ flex: 1, height: '100%', justifyContent: 'center', alignItems: 'flex-end' }}>
               <Button
                 txtStyle={styles.icCart}
                 txtMsg="p"
@@ -84,7 +84,7 @@ class Client extends React.Component {
           </View>
           <SubHeader reason={client.reason} {...this.props} />
           <ClientDetails {...this.props} />
-          { /* Iformações extras atual */ }
+          { /* Informações extras do cliente atual */ }
           {current}
           <LastOrders />
           {/* Atributos */}
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   backArrow: {
     fontFamily: Font.C,
     fontSize: 30,
-    marginTop: 34,
+    marginTop: 30,
     marginLeft: 25,
     transform: [{ rotate: '180deg' }],
     color: 'rgba(102, 102, 102, 0.5)'
@@ -163,6 +163,6 @@ const styles = StyleSheet.create({
     fontFamily: Font.C,
     color: '#999',
     marginRight: 40,
-    marginTop: 125
+    marginTop: 45
   },
 });

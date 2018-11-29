@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: Font.AThin,
     marginLeft: 35,
-    marginTop: 20,
+    marginTop: 15,
     fontSize: 42,
     color: 'rgba(102, 102, 102, 0.5)',
   },

@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  context: 'Setup',
+  context: 'Admin',
   catalogCover: true,
 };
 
