@@ -37,7 +37,7 @@ class DropDown extends React.Component {
         <FlatList
           style={styles.list}
           data={this.state.list}
-          keyExtractor={(item) => item.code}
+          keyExtractor={(item) => item.fantasyName}
           onEndReachedThreshold={0.01}
           onEndReached={() => {
             if (this.state.list.length < this.props.data.length) {

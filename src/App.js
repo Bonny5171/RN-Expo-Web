@@ -23,16 +23,6 @@ if (Platform.OS === 'web') {
 
 const store = createStore(reducers);
 class App extends React.Component {
-  componentDidMount() {
-    if (Platform.OS !== 'web')
-      Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.LANDSCAPE_RIGHT);
-  }
-
-  componentWillUnmount() {
-    if (Platform.OS !== 'web')
-      Expo.ScreenOrientation.allow(Expo.ScreenOrientation.Orientation.PORTRAIT);
-  }
-
   render() {
     return (
       <Provider store={store}>

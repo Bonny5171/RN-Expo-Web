@@ -12,7 +12,7 @@ class ClientBox extends React.Component {
             <View style={styles.clientImg} />
           </View>
           <View style={{ flex: 1, width: 400, justifyContent: 'center' }} >
-            <Text style={styles.clientName}>{this.props.name}</Text>
+            <Text style={styles.clientName}>{this.props.name.toUpperCase()}</Text>
           </View>
         </View>
       </View>

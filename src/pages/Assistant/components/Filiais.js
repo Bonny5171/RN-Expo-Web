@@ -4,7 +4,7 @@ import { CheckOption } from '.';
 import { Fade } from '../../../components';
 import global from '../../../assets/styles/global';
 
-class Filiais extends React.PureComponent {
+class Filiais extends React.Component {
   render() {
     const {
       stores,
@@ -16,30 +16,39 @@ class Filiais extends React.PureComponent {
       acOnlyBranches,
       inputClient,
     } = this.props;
+    const data = [];
+    stores.forEach(store => {
+      if (!store.headquarter) data.push(store);
+      if(store !== undefined) {
+        if (filterBranches[0] && store.headquarter) data.push(store);
+      }
+    });
 
     return (
-      <Fade style={{ flex: 4, paddingTop: 18 }} visible={stores.length > 0 && inputClient !== ''} duration={800}>
+      <Fade style={{ flex: 7 }} visible={stores.length > 0 && inputClient !== ''} duration={800}>
         <Text style={[global.text, { fontSize: 17 }]}>Este cliente possui filiais. Defina as lojas que compartilharão da compra</Text>
         <View style={{ flex: 1, flexDirection: 'row', paddingTop: 8 }}>
           {/* Box esquerdo */}
           <View style={{ flex: 1, padding: 3 }}>
-            <View style={styles.branches}>
-              <FlatList
-                style={{ maxHeight: 265 }}
-                data={stores}
-                initialNumToRender={10}
-                keyExtractor={item => item.name}
-                renderItem={({ item, index }) => (
-                  <CheckOption
-                    msg={item.name}
-                    checkbox={item.isChosen}
-                    action={acChooseStore}
-                    params={[index]}
-                    txtStyle={{ fontSize: 14, marginLeft: 6 }}
-                  />
-                )}
-              />
-            </View>
+          {!filterBranches[0] ?
+              <View style={styles.branches}>
+                <FlatList
+                  style={{ maxHeight: 265 }}
+                  data={data}
+                  initialNumToRender={10}
+                  keyExtractor={item => `${item.name}${item.code}`}
+                  renderItem={({ item, index }) => (
+                    <CheckOption
+                      msg={item.name}
+                      checkbox={item.isChosen}
+                      action={acChooseStore}
+                      params={[index]}
+                      txtStyle={{ fontSize: 14, marginLeft: 6 }}
+                    />
+                  )}
+                />
+              </View>
+             : null }
           </View>
           {/* Box direito */}
           <View style={{ flex: 1, alignItems: 'center' }}>

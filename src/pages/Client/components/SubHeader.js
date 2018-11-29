@@ -25,7 +25,7 @@ class SubHeader extends React.Component {
       acNextClient,
       acPreviousClient
     } = this.props;
-    console.log(`RERENDER`);
+
     const arrow = <IA style={{ fontSize: 10 }} msg="v" />;
     return (
       <View style={styles.container}>
@@ -62,8 +62,9 @@ export default SubHeader;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center'
+    flex: 0.55,
+    marginTop: 25,
+    justifyContent: 'center',
   },
   text: {
     fontSize: 15,

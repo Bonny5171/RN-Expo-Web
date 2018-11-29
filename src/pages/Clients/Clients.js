@@ -126,6 +126,7 @@ class Clients extends React.Component {
           <FilterPopUp
             isVisible={this.props.buttons[1].isChosen}
             {...this.props}
+            {...SrvClients}
           />
         </Fade>
       </ImageBackground>
@@ -227,8 +228,12 @@ let styles = StyleSheet.create({
     marginTop: 5,
   },
   icList: {
-    position: 'absolute',
-    right: 6, 
+    ...Platform.select({
+      ios: {
+        position: 'absolute',
+        right: 6,
+      }
+    }),
     fontFamily: Font.C,
     fontSize: 35,
     textAlign: 'center',

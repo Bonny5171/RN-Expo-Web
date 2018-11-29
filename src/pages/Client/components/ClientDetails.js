@@ -35,6 +35,7 @@ class ClientDetails extends React.Component {
       <View style={styles.container}>
         <View style={{ flex: 3 }}>
           <Row>
+            <View style={{ position: 'absolute', height: 335, width: '100%', backgroundColor: 'rgba(244,244,244, 0.5)', marginTop: -10 }} />
             <ClientBox name={client.fantasyName} />
             <ClientInfo
               client={client}

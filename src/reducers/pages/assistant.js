@@ -45,20 +45,22 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, checkboxes };
     }
     case 'filter_branches': {
-      const filterBranches = radioFunction(state.checkboxes, action.position);
+      const filterBranches = [...state.filterBranches];
+      filterBranches[action.position] = !state.filterBranches[action.position];      
       return { ...state, filterBranches };
     }
     case 'only_headequarter': {
-      const stores = [state.initialStores.find(store => { return store.headquarter === true; })];
+      let stores = [];
+      if (!state.filterBranches[0]) {
+        stores = [state.initialStores.find(store => { return store.headquarter === true; })];
+      } else {
+        stores = [...state.initialStores];
+      }
+
       return { ...state, stores };
     }
     case 'only_branches': {
-      const stores = [];
-      state.initialStores.forEach(store => {
-        if (!store.headquarter) {
-          stores.push(store);
-        }
-      });
+      const stores = state.stores.map(store => ({ ...store, isChosen: !store.isChosen }));
 
       return { ...state, stores };
     }
