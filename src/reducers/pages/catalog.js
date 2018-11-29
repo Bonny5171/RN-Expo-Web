@@ -838,6 +838,7 @@ const INITIAL_STATE = {
 
   carts: [
     {
+      selected: false,
       name: 'Pré data em XX/XX',
       products: [
         {
@@ -877,6 +878,7 @@ const INITIAL_STATE = {
       ]
     },
     {
+      selected: false,
       name: 'Linha ABCD',
       products: [
         {
@@ -918,6 +920,7 @@ const INITIAL_STATE = {
       ]
     },
     {
+      selected: false,
       name: 'Comprador Fulano',
       products: [
         {
@@ -1112,6 +1115,10 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'set_car_selected': {
+      const { carts } = action.payload;
+      return { ...state, carts };
+    }
     case 'update_btn_mais': {
       const { btnMais } = action.payload;
       return { ...state, btnMais };

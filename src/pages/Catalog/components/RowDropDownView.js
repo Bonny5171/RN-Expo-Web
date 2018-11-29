@@ -16,19 +16,27 @@ class Row extends React.Component {
       item,
       acOpenCloseDropDown,
       acCurrentDropDown,
-      acDeleteCart
+      acDeleteCart,
+      eventHandler,
     } = this.props;
 
     return (
       <TouchableOpacity
         style={styles.view}
         onPress={() => {
-            acOpenCloseDropDown();
-            acCurrentDropDown(item);
+            if (eventHandler) {
+              eventHandler(item);
+            }
+            else {
+              acOpenCloseDropDown();
+              acCurrentDropDown(item);
+            }
           }
         }
       >
-        <Text style={styles.item}>{item.name}</Text>
+        <Text style={[styles.item, {
+          color: item.selected ? 'green' : '#4F97B0',
+        }]}>{item.name}</Text>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           {
             item.standard ?

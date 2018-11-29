@@ -15,7 +15,7 @@ class DropDownView extends React.Component {
     const {
       options, vwStyle, isVisible,
       acOpenCloseDropDown, acCurrentDropDown,
-      acSaveCart, acDeleteCart
+      acSaveCart, acDeleteCart, eventHandler
     } = this.props;
 
     if (isVisible) {
@@ -31,6 +31,7 @@ class DropDownView extends React.Component {
                 acOpenCloseDropDown={acOpenCloseDropDown}
                 acCurrentDropDown={acCurrentDropDown}
                 acDeleteCart={acDeleteCart}
+                eventHandler={eventHandler}
               />
             )}
             keyExtractor={(item) => item.name}

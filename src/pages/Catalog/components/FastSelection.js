@@ -7,7 +7,12 @@ import { Fade } from '../../../components';
 class FastSelection extends React.PureComponent {
 
   render() {
-    console.log('this.props.carts', this.props.carts);
+    
+    // Carrinho padrao provisorio.
+    const cars = [{
+      name: "Carrinho Padrão",
+      selected: true,
+    }, ...this.props.carts ];
     
     return (
       <View style={{
@@ -22,9 +27,25 @@ class FastSelection extends React.PureComponent {
           <DropDownView
             vwStyle={{ width: 220 }}
             isVisible
-            options={this.props.carts}
+            options={cars}
             {...this.props}
-          />
+            eventHandler={(item) => {
+              const carts = this.props.carts.map((asd) => {
+                debugger
+                if (item.key == asd.key) {
+                  console.log('localizado');
+                  asd.selected = !item.selected;
+                }
+                return asd;
+              })
+
+              //console.log('carts', carts)
+              this.props.acDefineCarrinhoSelecionado({ carts });
+
+              // abre o assistente de selecao
+              this.props.acSelectList({ selectList: !this.props.selectList });
+            }
+          }/>
         </Fade>
         <View style={{ justifyContent: 'flex-end', alignItems: 'flex-end', }}>
           <Fade visible={this.props.selectOpt}>
