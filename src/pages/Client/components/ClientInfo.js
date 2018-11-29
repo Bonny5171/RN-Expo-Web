@@ -15,6 +15,7 @@ class ClientInfo extends React.Component {
 
   render() {
     const { client } = this.props;
+    const reason = client.reason instanceof String ? client.reason.substr(0,26) : client.reason;
     return (
       <View style={{ flex: 1 }}>
         <Row style={{ flex: 2 }}>
@@ -22,17 +23,17 @@ class ClientInfo extends React.Component {
           <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
             <ClientField
               label="RAZÃO SOCIAL"
-              msg={`${client.reason.substr(0,26)}...`}
+              msg={`${reason}...`}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: 46 }}
+              vwText={{ marginLeft: 66 }}
             />
             <ClientField
               label="TELEFONE 1"
               msg={client.phone}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: -50 }}
+              vwText={{ marginLeft: -26 }}
             />
             <ClientField
               label="CNPJ"
@@ -56,14 +57,14 @@ class ClientInfo extends React.Component {
               msg={`${client.fantasyName.substr(0,14)}...`}
               container={[styles.vwClientField, { marginLeft: -30, marginTop: -12 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ justifyContent: 'flex-start', marginLeft: -10 }}
+              vwText={{ justifyContent: 'flex-start', marginLeft: -7 }}
             />
             <ClientField
               label="TELEFONE 2"
               msg={client.phone2}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: -45, marginTop: -10 }}
+              vwText={{ marginLeft: -25, marginTop: -10 }}
             />
             <ClientField
               label="CÓDIGO"
