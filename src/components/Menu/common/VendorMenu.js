@@ -42,27 +42,30 @@ class VendorMenu extends React.PureComponent {
       acResetNavigation,
     } = this.props;
 
-    const icons = iconsValues.map((curr) => (
-      <Button
-        turnOffOpacity
-        key={curr.key}
-        txtMsg={curr.txtMsg}
-        tchbStyle={{ marginTop: 25 }}
-        txtStyle={styles.menuIcon}
-        shadow
-        rdAction={acUpdateButtons}
-        rdType="vendor"
-        rdName={curr.name}
-        action={acResetSubMenu}
-        actions={[
-          { func: navigation.navigate, params: [curr.name]}
-        ]}
-        isChosen={vendor[curr.key].isChosen}
-        changeColor
-        chosenColor="#0085B2"
-        nChosenColor="rgba(0,0,0,0.3)"
-      />
-    ));
+    const icons = iconsValues.map((curr) => {
+      const func = !vendor[curr.key].isChosen ? navigation.navigate : () => null;
+      return (      
+        <Button
+          turnOffOpacity
+          key={curr.key}
+          txtMsg={curr.txtMsg}
+          tchbStyle={{ marginTop: 25 }}
+          txtStyle={styles.menuIcon}
+          shadow
+          rdAction={acUpdateButtons}
+          rdType="vendor"
+          rdName={curr.name}
+          action={acResetSubMenu}
+          actions={[
+            { func, params: [curr.name]}
+          ]}
+          isChosen={vendor[curr.key].isChosen}
+          changeColor
+          chosenColor="#0085B2"
+          nChosenColor="rgba(0,0,0,0.3)"
+        />
+      );
+    });
 
     const isCatalogActive = vendor[0].isChosen;
     const icCatalog = isCatalogActive ? styles.icCatalogChosen : styles.menuIcon;

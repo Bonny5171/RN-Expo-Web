@@ -22,17 +22,17 @@ class ClientInfo extends React.Component {
           <View style={{ flex: 1, justifyContent: 'space-evenly' }}>
             <ClientField
               label="RAZÃO SOCIAL"
-              msg={client.reason}
+              msg={`${client.reason.substr(0,26)}...`}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: 65 }}
+              vwText={{ marginLeft: 46 }}
             />
             <ClientField
               label="TELEFONE 1"
               msg={client.phone}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: -25 }}
+              vwText={{ marginLeft: -50 }}
             />
             <ClientField
               label="CNPJ"
@@ -53,17 +53,24 @@ class ClientInfo extends React.Component {
           <View style={{ flex: 1, paddingTop: 10 }}>
             <ClientField
               label="NOME FANTASIA"
-              msg={client.fantasyName}
+              msg={`${client.fantasyName.substr(0,14)}...`}
               container={[styles.vwClientField, { marginLeft: -30, marginTop: -12 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ justifyContent: 'flex-start', marginLeft: -16 }}
+              vwText={{ justifyContent: 'flex-start', marginLeft: -10 }}
             />
             <ClientField
               label="TELEFONE 2"
               msg={client.phone2}
               container={[styles.vwClientField, { marginLeft: -30 }]}
               vwLabel={styles.vwLabelClient}
-              vwText={{ marginLeft: -25, marginTop: -10 }}
+              vwText={{ marginLeft: -45, marginTop: -10 }}
+            />
+            <ClientField
+              label="CÓDIGO"
+              msg="44823"
+              container={[styles.vwClientField, { marginLeft: -30 }]}
+              vwLabel={styles.vwLabelClient}
+              vwText={{ marginLeft: -95, marginTop: -10 }}
             />
             <ClientField
               label="SITUAÇÃO"
@@ -72,7 +79,6 @@ class ClientInfo extends React.Component {
               vwLabel={[styles.vwLabelClient, { width: 160 }]}
               vwText={[styles.vwTextShort, { marginTop: -20 }]}
             />
-            <View style={ styles.vwClientField} />
           </View>
         </Row>
         <Button

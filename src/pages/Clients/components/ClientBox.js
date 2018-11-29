@@ -37,7 +37,7 @@ class ClientBox extends React.Component {
             resizeMode="cover"
           />
           <View style={{ justifyContent: 'center', flex: 1, paddingLeft: 27 }}>
-            <Text style={styleCB.txtClient}>{this.props.name}</Text>
+            <Text style={styleCB.txtClient}>{this.props.name.toUpperCase()}</Text>
             <Text style={styleCB.cliendId}>{this.props.code}</Text>
           </View>
 
@@ -52,13 +52,13 @@ export default ClientBox;
 const styleCB = StyleSheet.create({
   vwClientBox: {
       backgroundColor: '#F7F8F3',
-      width: 215,
-      height: 255,
+      width: 200,
+      height: 240,
       marginTop: 20,
   },
   imgClient: {
-      height: 110,
-      width: 165,
+      height: 95,
+      width: 155,
       marginTop: 20,
       flex: 2,
       marginLeft: 27,

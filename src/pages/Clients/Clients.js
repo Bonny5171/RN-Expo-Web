@@ -198,7 +198,7 @@ const tchbFilter = {
 let styles = StyleSheet.create({
   title: {
     fontFamily: Font.AThin,
-    marginLeft: 35,
+    marginLeft: 37,
     marginTop: 20,
     fontSize: 42,
     color: 'rgba(102, 102, 102, 0.5)',
@@ -223,7 +223,6 @@ let styles = StyleSheet.create({
     backgroundColor: '#DDD',
     height: 25,
     width: 31,
-    paddinRight: 8, 
     marginRight: 24,
     marginTop: 5,
   },
@@ -251,7 +250,7 @@ let styles = StyleSheet.create({
     alignItems: 'center',
   },
   listContainer: {
-
+    paddingLeft: 14.5
   },
   btnBuscar: {
     backgroundColor: '#0085B2',
