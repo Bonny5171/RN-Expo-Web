@@ -293,3 +293,10 @@ export const acCarrinho = (payload) => {
   };
 };
 
+export const acDefineCarrinhoSelecionado = (payload) => {
+  return {
+    type: 'set_car_selected',
+    payload
+  };
+};
+
