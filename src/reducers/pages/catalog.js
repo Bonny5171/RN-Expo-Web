@@ -11,7 +11,7 @@ const products = [
   { key: '1', selected: false, isHidden: false, isExpanded: false, name: 'GRENDHA ARUBA CHIN AD', code: '12345', uri: '../../../assets/imgs/tenis.png', 
     tags: [ 
       { label: 'NOVO', color: 'red' },
-      { label: '1 GIRO', color: '#678fd4' },
+      { label: '1 GIRO ', color: '#678fd4' },
       { label: '2 GIRO', color: '#FF0DFF' },
       { label: '3 GIRO', color: '#E80C7A' },
       { label: '4 GIRO', color: '#FF07A8' },
