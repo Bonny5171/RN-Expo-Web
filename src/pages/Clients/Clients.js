@@ -223,7 +223,6 @@ let styles = StyleSheet.create({
     backgroundColor: '#DDD',
     height: 25,
     width: 31,
-    paddinRight: 8, 
     marginRight: 24,
     marginTop: 5,
   },
