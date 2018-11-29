@@ -151,8 +151,12 @@ class Product extends React.Component {
       >
         {
           tagsArr.map(t => (
-            <View key={t.label} style={{ padding: 2, paddingRight: 0 }}>
-              <Text style={[styles.tag, { backgroundColor: t.color, paddingRight: 2 }]}>{t.label}</Text>
+            <View key={t.label} style={{ 
+              borderRadius: 10,
+              backgroundColor: t.color,
+              marginBottom: 5
+            }}>
+              <Text style={[styles.tag, { paddingRight: 2 }]}>{t.label}</Text>
             </View>
           ))
         }

@@ -272,3 +272,24 @@ export const acSelectOpt = (payload) => {
   };
 };
 
+export const acBtnMais = (payload) => {
+  return {
+    type: 'update_btn_mais',
+    payload
+  };
+};
+
+export const acBtnEnvelop = (payload) => {
+  return {
+    type: 'update_btn_envelop',
+    payload
+  };
+};
+
+export const acCarrinho = (payload) => {
+  return {
+    type: 'update_btn_carrinho',
+    payload
+  };
+};
+

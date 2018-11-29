@@ -153,10 +153,6 @@ export default StyleSheet.create({
     color: 'white',
     paddingLeft: 8,
     paddingRight: 8,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
   },
   tagNovo: {
     backgroundColor: '#ffc69c',

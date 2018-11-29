@@ -11,7 +11,7 @@ const products = [
   { key: '1', selected: false, isHidden: false, isExpanded: false, name: 'GRENDHA ARUBA CHIN AD', code: '12345', uri: '../../../assets/imgs/tenis.png', 
     tags: [ 
       { label: 'NOVO', color: 'red' },
-      { label: '1 GIRO', color: '#678fd4' },
+      { label: '1 GIRO ', color: '#678fd4' },
       { label: '2 GIRO', color: '#FF0DFF' },
       { label: '3 GIRO', color: '#E80C7A' },
       { label: '4 GIRO', color: '#FF07A8' },
@@ -1103,10 +1103,27 @@ const INITIAL_STATE = {
   ponteiroProduto: ['', ''],
 
   produtosSelecionados: [],
+
+  // selecao rapida
+  btnMais: false,
+  btnEnvelope: false,
+  btnCarrinho: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case 'update_btn_mais': {
+      const { btnMais } = action.payload;
+      return { ...state, btnMais };
+    }
+    case 'update_btn_envelop': {
+      const { btnEnvelope } = action.payload;
+      return { ...state, btnEnvelope };
+    }
+    case 'update_btn_carrinho': {
+      const { btnCarrinho } = action.payload;
+      return { ...state, btnCarrinho };
+    }
     case 'update_buttons': {
       const buttons = updateComponent(action.name, state.buttons);
       return { ...state, buttons };

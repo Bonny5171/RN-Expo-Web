@@ -5,7 +5,10 @@ import { Font } from '../../../assets/fonts/font_names';
 import { Fade } from '../../../components';
 
 class FastSelection extends React.PureComponent {
+
   render() {
+    console.log('this.props.carts', this.props.carts);
+    
     return (
       <View style={{
         position: 'absolute',
@@ -28,20 +31,41 @@ class FastSelection extends React.PureComponent {
             {/* CARRINHO */}
             <TouchableOpacity
               activeOpacity={this.props.resumoCar ? 1 : 0.7}
-              onPress={() => this.props.acOpenCart({ resumoCar: !this.props.resumoCar })}
+              onPress={() => {
+                this.props.acOpenCart({ resumoCar: !this.props.resumoCar });
+                this.props.acCarrinho({ btnCarrinho: !this.props.btnCarrinho });
+              }}
             >
               <View style={[styles.circle, { justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }]}>
-                <Text style={styles.iconPlus}>p</Text>
+                <Text style={[
+                  styles.iconPlus,
+                  {
+                    color:  this.props.btnCarrinho 
+                      ? 'rgba(0, 122, 176, 0.85)'
+                      : 'rgba(102, 102, 102, 0.5)'
+                  }
+                  ]}>p</Text>
               </View>
             </TouchableOpacity>
     
             {/* EMAIL */}
             <TouchableOpacity
               activeOpacity={this.props.selectList ? 1 : 0.7}
-              onPress={() => this.props.acSelectList({ selectList: !this.props.selectList })}
+              onPress={() => {
+                this.props.acSelectList({ selectList: !this.props.selectList });
+                this.props.acBtnEnvelop({ btnEnvelope: !this.props.btnEnvelope });
+                this.setState({ btnMais: true });
+              }}
             >
               <View style={[styles.circle, { justifyContent: 'center', alignItems: 'center', backgroundColor: 'white' }]}>
-                <Text style={styles.iconPlus}>W</Text>
+                <Text style={[
+                  styles.iconPlus,
+                  {
+                    color:  this.props.btnEnvelope 
+                      ? 'rgba(0, 122, 176, 0.85)'
+                      : 'rgba(102, 102, 102, 0.5)'
+                  }
+                  ]}>W</Text>
               </View>
             </TouchableOpacity>
           </Fade>
@@ -49,10 +73,20 @@ class FastSelection extends React.PureComponent {
           {/* BTN MAIS */}
           <TouchableOpacity
             activeOpacity={this.props.selectList ? 1 : 0.7}
-            onPress={() => this.props.acSelectOpt({ selectOpt: !this.props.selectOpt })}
-          >
+            onPress={() => {
+              this.props.acSelectOpt({ selectOpt: !this.props.selectOpt });
+              this.props.acBtnMais({ btnMais: !this.props.btnMais });
+            }
+          }>
             <View style={[styles.circle, { justifyContent: 'center', alignItems: 'center' }]}>
-              <Text style={styles.iconPlus}>g</Text>
+              <Text style={[
+                  styles.iconPlus,
+                  {
+                    color:  this.props.btnMais 
+                      ? 'rgba(0, 122, 176, 0.85)'
+                      : 'rgba(102, 102, 102, 0.5)'
+                  }
+                ]}>g</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -71,7 +105,6 @@ const styles = StyleSheet.create(
     iconPlus: {
       fontFamily: Font.C,
       fontSize: 35,
-      color: 'rgba(0, 122, 176, 0.85)',
       textShadowOffset: { width: 2, height: 2 },
       textShadowColor: '#0085B2',
       textShadowRadius: 8
