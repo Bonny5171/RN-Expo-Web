@@ -12,7 +12,7 @@ const ClientField = ({
       <Text style={styles.lblClient}>{label}</Text>
     </View>
     <View style={[vwText, { flex: 1, marginTop: -1 }]}>
-      <Text style={[styles.txtClient, styleText]}>{msg}</Text>
+      <Text style={[styles.txtClient, styleText]}>{msg.toUpperCase()}</Text>
     </View>
   </View>
 );
