@@ -251,6 +251,9 @@ const mapStateToProps = state => (
  produtosSelecionados: state.catalog.produtosSelecionados,
             selectOpt: state.catalog.selectOpt,
             resumoCar: state.catalog.resumoCar,
+            btnMais: state.catalog.btnMais,
+            btnEnvelope: state.catalog.btnEnvelope,
+            btnCarrinho: state.catalog.btnCarrinho,
                client: state.client.client,
               context: state.global.context
   }
