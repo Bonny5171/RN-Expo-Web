@@ -35,7 +35,7 @@ class Row extends React.Component {
         }
       >
         <Text style={[styles.item, {
-          color: item.selected ? 'green' : '#4F97B0',
+          color: item.selected ? '#4F97B0' : '#4F97B0',
         }]}>{item.name}</Text>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           {
