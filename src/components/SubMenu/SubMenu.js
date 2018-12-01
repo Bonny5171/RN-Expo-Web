@@ -19,11 +19,13 @@ const SubMenu = (
     if (item.icon === 'X') {
       item.actions = expandedActions;
     } else if (item.icon === '3') {
-      const catalogActions = [
-        { func: navigation.navigate, params: [item.params] },
+      let catalogActions = [
         { func: acToggleExpanded, params: [true] },
         { func: acSubMenuCatalog, params: [item.params] }
       ];
+      // Quando estiver navegando da página de listagem para a de catálogo devemos passar a função de  navegação
+      // Porque quando trocar entre catalogo expandido e normal ele não deve navegar.
+      if (navigation.state.routeName === 'listCatalog') catalogActions = [...catalogActions, { func: navigation.navigate, params: [item.params] }];
       item.actions = catalogActions;
     } else {
       item.actions = [{ func: navigation.navigate, params: [item.params] }, { func: acSubMenuCatalog, params: [] }];

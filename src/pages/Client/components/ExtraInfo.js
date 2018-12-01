@@ -15,11 +15,9 @@ class ExtraInfo extends React.PureComponent {
       acNextInfo,
       acPreviousInfo,
     } = this.props;
-
-    let addedItems = 0;
-    let data = [];
-    const rows = [];
-    const itemsPerRow = 4;
+    
+    // Linha Max: 3
+    // Total de linhas : X
     return (
       <View style={{ flex: 3, backgroundColor: '#EEEEEE60' }}>
         {/* Este primeiro flex será dinâmico para as outros dados de extra info maiores, com mais colunas */}
@@ -38,39 +36,71 @@ class ExtraInfo extends React.PureComponent {
             <View style={{ flex: 1.5, justifyContent: 'center' }}>
               <Text style={styles.title}>{title}</Text>
             </View>
-            <View style={{ flex: 3.5, paddingTop: 10, flexWrap: 'wrap' }}>
-              {
-                labels.forEach((label, index) => {
-                  // Se não tiver sido adicionado nenhum item, será inicializado vazio (para cada linha) 
-                  if (addedItems === 0) {data = []; console.log('NEW')}
-                  addedItems += 1
-                  // Será adicionado 3 items por linha
-                  if (addedItems < itemsPerRow + 1) {
-                    data.push({ 
-                      label,
-                      info: infos[index]
-                    });
-                  }
-                
-                  // Após adicionar 3 items, zeramos a contagem de items adicionados para zerar o vetor data na linha 46
-                  if (addedItems === itemsPerRow + 1) {
-                    rows.push(
-                      <View style={{ flex: 1, width: '100%', flexDirection: 'row',}} key={index.toString()} >
-                        <ExtraInfoRow data={data} />
-                      </View>
-                    );
-                    addedItems = 0;
-                  } else if (data.length < index + 1) {
-                    rows.push(
-                      <View style={{ flex: 1, width: '100%', flexDirection: 'row',}} key={index.toString()} >
-                        <ExtraInfoRow data={data} />
-                      </View>
-                    );
-                  }
-                    
-                })
-              }
-              {rows}
+            <View style={{ flex: 3.5, paddingTop: 10 }}>
+              <Row style={{ flex: 1, justifyContent: 'space-around' }}>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[0]}
+                    msg={infos[0]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[1]}
+                    msg={infos[1]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[2]}
+                    msg={infos[2]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+              </Row>
+              <Row style={{ flex: 1, justifyContent: 'space-around', paddingTop: 10 }}>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[3]}
+                    msg={infos[3]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[4]}
+                    msg={infos[4]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+                <View style={styles.flexOne}>
+                  <ClientField
+                    label={labels[5]}
+                    msg={infos[5]}
+                    container={styles.flexOne}
+                    vwLabel={{ flex: 0.8 }}
+                    vwText={styles.flexOne}
+                    styleText={styles.spacingNumbers}
+                  />
+                </View>
+              </Row>
             </View>
           </View>
           <View style={{ flex: 1, alignItems: 'flex-end' }}>
@@ -133,23 +163,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
-
-const ExtraInfoRow = ({ data }) => (
-  <View style={{ flex: 1, paddingLeft: 5, flexDirection: 'row', justifyContent: 'space-around' }}>
-    {      
-      data.map(({ label, info }, index) => (
-        <View style={{ flex: 1, }} key={index.toString()}>
-          <ClientField
-            label={label}
-            msg={info}
-            container={styles.flexOne}
-            vwLabel={{ flex: 0.8 }}
-            vwText={styles.flexOne}
-            styleText={styles.spacingNumbers}
-          />
-        </View>
-      ))
-    }
-  </View>
-)
