@@ -27,22 +27,20 @@ class Client extends React.Component {
     const extraInfoScreens = [
       <ExtraInfo
         title="INFORMAÇÕES FINANCEIRAS"
-        labels={['LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS', 'PEDIDOS FATURADOS', 'LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS', 'PEDIDOS FATURADOS']}
-        infos={['R$ 5.000.000,00', 'R$ 1.000.000,00', 'R$48880,00', 'R$ 51355,00', 'R$ 4.000.000,00', 'R$ 5123,00',]}
+        labels={['LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS', 'PEDIDOS FATURADOS', 'LIMITE DE CRÉDITO', 'PEDIDOS APROVADOS']}
+        infos={['R$ 5.000.000,00', 'R$ 1.000.000,00', 'R$48880,00', 'R$ 51355,00', 'R$ 4.000.000,00']}
         {...this.props}
       />,
       <ExtraInfo
-        // Endereços
         title="ENDEREÇOS"
-        labels={['RUA', '', '', '', '', '']}
-        infos={['ALEXANDRE DUMAS, 2048', '', '', '', '', '',]}
+        labels={['RUA']}
+        infos={['ALEXANDRE DUMAS, 2048']}
         {...this.props}
       />,
       <ExtraInfo
-        // Descontosrr
         title="DESCONTOS"
-        labels={['1º DESCONTO', '2º DESCONTO', '3º DESCONTO', '4º DESCONTO', '', '']}
-        infos={['20%', '10%', '50%', '75%', '', '',]}
+        labels={['1º DESCONTO', '2º DESCONTO', '3º DESCONTO', '4º DESCONTO']}
+        infos={['20%', '10%', '50%', '75%']}
         {...this.props}
       />,
     ];
