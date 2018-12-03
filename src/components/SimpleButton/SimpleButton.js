@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     fontSize: 18,
+    bottom: 1,
     color: 'white',
     fontFamily: Font.ASemiBold,
     fontWeight: 'bold',

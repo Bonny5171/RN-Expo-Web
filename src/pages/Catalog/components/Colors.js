@@ -110,7 +110,7 @@ const Color = ({
       {
         newColor ?
           <IconActionless
-            style={{ position: 'absolute', alignSelf: 'flex-end', color: 'green' }}
+            style={{ position: 'absolute', alignSelf: 'flex-end', color: 'green', fontSize: 14, marginLeft: 4 }}
             msg="_"
           />
         :
