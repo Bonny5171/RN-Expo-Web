@@ -67,18 +67,18 @@ export default StyleSheet.create({
   titleNomeCliente: {
     fontFamily: Font.BRegular,
     fontSize: 18,
-    marginTop: 20,
+    marginTop: 32,
     color: dark,
   },
   codigoCliente: {
     fontFamily: Font.ARegular,
-    fontSize: 14,
+    fontSize: 13,
+    marginTop: 32,
     color: dark,
   },
   setorCliente: {
     fontFamily: Font.ARegular,
-    fontSize: 14,
-    marginTop: 5,
+    fontSize: 13,
     color,
   },
 

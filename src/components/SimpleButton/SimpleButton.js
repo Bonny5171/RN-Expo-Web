@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#0085B2',
   },
   txt: {
-    fontSize: 16,
+    fontSize: 18,
     color: 'white',
     fontFamily: Font.ASemiBold,
     fontWeight: 'bold',

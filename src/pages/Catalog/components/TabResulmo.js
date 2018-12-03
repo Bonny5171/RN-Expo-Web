@@ -2,15 +2,15 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { Font } from '../../../assets/fonts/font_names';
-import { Button } from '../../../components';
+import { Button, SimpleButton } from '../../../components';
 
 const box = { padding: 5, paddingRight: 20 };
 const titulo = { color: 'rgba(102, 102, 102, 1)', fontFamily: Font.ASemiBold, fontSize: 12 };
-const subTitulo = { color: 'rgba(102, 102, 102, 1)', fontFamily: Font.ASemiBold, fontSize: 16 };
+const subTitulo = { color: 'rgba(102, 102, 102, 1)', fontFamily: Font.ASemiBold, fontSize: 16, marginTop: 3 };
 
 const TabResulmo = ({ currentProduct }) => (
   <View style={{ flex: 1 }}>
-    <View style={{ flex: 10 }}>
+    <View style={{ flex: 4 }}>
       <Text style={{
           fontSize: 26, color: 'rgba(102, 102, 102, 1)', fontFamily: Font.ARegular,
         }}
@@ -55,34 +55,19 @@ const TabResulmo = ({ currentProduct }) => (
         </View>
       </View>
     </View>
-
-    <View style={{
-        flex: 1, flexDirection: 'row', padding: 15,
-      }}
-    >
-      <TouchableOpacity style={{ flex: 1 }} onPress={() => this._handleSelectTab(t)}>
-        <Text style={{ color: '#0085B2', textDecorationLine: 'underline', fontSize: 16, fontFamily: Font.ARegular, }}>
-          Ir para a página do produto
-        </Text>
-      </TouchableOpacity>
-      <Button
-        tchbStyle={{
-          backgroundColor: '#0085B2',
-          height: 30,
-          width: 120,
-          borderRadius: 45,
-
-        }}
-        txtStyle={{
-          fontSize: 20,
-          color: 'white',
-          fontFamily: Font.ASemiBold,
-          textAlign: 'center',
-        }}
-        txtMsg="EU QUERO"
-        action={() => { alert('EU QUERO'); }}
-      />
-    </View>
+    <View style={{flex:1, width: '100%', flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => this._handleSelectTab(t)}>
+          <Text style={{ color: '#0085B2', textDecorationLine: 'underline', fontSize: 16, fontFamily: Font.ARegular, }}>
+            Ir para a página do produto
+          </Text>
+        </TouchableOpacity>
+        <SimpleButton
+          tchbStyle={{ height: 45, marginLeft: 120 }}
+          txtStyle={{ fontSize: 19 }}
+          msg="EU QUERO"
+          action={() => {alert('EU QUERO');}}
+        />
+      </View>
   </View>
 );
 

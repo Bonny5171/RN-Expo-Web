@@ -4,7 +4,7 @@ import styles from '../../../assets/styles/global';
 import { Product, DetailProduct } from './';
 
 const Row = props => (
-  <View>
+  <View style={{ paddingLeft: 20 }}>
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 35, paddingLeft: 5 }}>
       <Text style={styles.grupoDestaque}>
         {props.exhibition}

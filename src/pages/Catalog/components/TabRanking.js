@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Font } from '../../../assets/fonts/font_names';
 import global from '../../../assets/styles/global';
 import { mapaSudeste, mapaBrasil } from '../../../assets/imgs';
-import { Button } from '../../../components';
+import { Button, SimpleButton } from '../../../components';
 
 
 const TabRanking = ({ currentProduct }) => (
   <View style={{ flex: 1 }}>
-    <View style={{ flex: 10, flexDirection: 'row' }}>
+    <View style={{ flex: 4, flexDirection: 'row' }}>
       {/* Ranking Nacional */}
       <View style={{ flex: 1 }}>
         {/* Header */}
@@ -40,27 +40,19 @@ const TabRanking = ({ currentProduct }) => (
         />
       </View>
     </View>
-    <View style={{ flex: 1, flexDirection: 'row', padding: 15, }}>
-      <Text style={{ flex: 1, color: '#0085B2', textDecorationLine: 'underline', fontSize: 16, fontFamily: Font.ARegular }}>
-        Ir para a página do produto
-      </Text>
-      <Button
-        tchbStyle={{
-          backgroundColor: '#0085B2',
-          height: 30,
-          width: 120,
-          borderRadius: 45,
-        }}
-        txtStyle={{
-          fontSize: 20,
-          color: 'white',
-          fontFamily: Font.ASemiBold,
-          textAlign: 'center',
-        }}
-        txtMsg="EU QUERO"
-        action={() => { alert('EU QUERO'); }}
-      />
-    </View>
+    <View style={{flex:1, width: '100%', flexDirection: 'row', alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => this._handleSelectTab(t)}>
+          <Text style={{ color: '#0085B2', textDecorationLine: 'underline', fontSize: 16, fontFamily: Font.ARegular, }}>
+            Ir para a página do produto
+          </Text>
+        </TouchableOpacity>
+        <SimpleButton
+          tchbStyle={{ height: 45, marginLeft: 120 }}
+          txtStyle={{ fontSize: 19 }}
+          msg="EU QUERO"
+          action={() => {alert('EU QUERO');}}
+        />
+      </View>
   </View>
 );
 
@@ -83,7 +75,7 @@ const styles = StyleSheet.create({
   imgMap: {
     flex: 1,
     position: 'absolute',
-    width: 220,
+    width: 200,
     height: 250,
     opacity: 0.4,
     resizeMode: 'contain'

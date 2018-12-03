@@ -52,6 +52,7 @@ class DetailProduct extends React.Component {
           ...this.props.style,
           height,
           opacity: fadeAnim,
+          marginLeft: -20,
           backgroundColor: 'rgba(255, 255, 255, 0.70)'
         }]}
       >

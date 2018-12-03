@@ -14,7 +14,7 @@ class Gallery extends React.Component {
       acUpdateGallery,
       acChangeGallery
     } = this.props;
-    const gota = colorsPopUp ? [styles.iconChecked, { fontSize: 20, marginTop: 15 }] : { color: 'rgba(0,0,0,0.3)', fontSize: 20, marginTop: 15 };
+    const gota = colorsPopUp ? [styles.iconChecked, { fontSize: 25, marginTop: 15 }] : { color: 'rgba(0,0,0,0.3)', fontSize: 25, marginTop: 15 };
     return (
       <View style={{ flex: 1 }}>
         {
@@ -23,11 +23,15 @@ class Gallery extends React.Component {
             ({ key, url, selected }) => {
               if (selected) {
                 return (
-                  <Fade key={key} visible >
+                  <Fade
+                    style={{ padding: 15 }}
+                    key={key}
+                    visible
+                  >
                     <ImageBackground
                       source={{ uri: url }}
-                      style={{ height: 400 }}
-                      resizeMode="contain"
+                      style={{ height: 310 }}
+
                     />
                   </Fade>
                 );
@@ -39,7 +43,7 @@ class Gallery extends React.Component {
             flex: 1,
             flexDirection: 'row',
             position: 'absolute',
-            bottom: 0,
+            bottom: 6,
             right: '35%',
             padding: 10,
           }}
@@ -58,16 +62,9 @@ class Gallery extends React.Component {
         </View>
         <View style={{
             position: 'absolute',
-            bottom: 30,
+            bottom: 15,
           }}
         >
-          {/* TODO: fix
-          <View style={{ paddingLeft: 20, paddingBottom: 5 }}>
-            <Text style={styles.tag1Giro}>NOVO</Text>
-          </View>
-          <View style={{ paddingLeft: 20 }}>
-            <Text style={styles.tag2Giro}>1 GIRO</Text>
-        </View>*/}
           <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
             <TouchableOpacity
               activeOpacity={0.5}

@@ -84,8 +84,8 @@ class Catalog extends React.Component {
         <Animated.View style={{ flexDirection: 'row', width, backgroundColor: this.state.backgroundColor }}>
           <Row style={{ flex: 2, paddingBottom: 10 }}>
             <Text style={global.titlePagina}>CATÁLOGO </Text>
-            <View style={{ flex: 1, paddingLeft: 10, justifyContent: 'flex-end' }}>
-              <Text style={[global.titleNomeCliente, { marginTop: 0 }]}>
+            <View style={{ flex: 1, paddingLeft: 10 }}>
+              <Text style={global.titleNomeCliente}>
                 {client.fantasyName !== undefined ? client.fantasyName : ''}
                 <Text style={global.codigoCliente}>
                   {' ('}{client.code !== undefined ? client.code.substr(0, 5) : ''}{')'}

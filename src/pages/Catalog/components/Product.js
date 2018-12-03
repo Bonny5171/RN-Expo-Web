@@ -145,7 +145,7 @@ class Product extends React.Component {
           position: 'absolute',
           elevation: 5,
           height: '70%',
-          left: -10,
+          left: -6,
           justifyContent: 'flex-end',
         }}
       >
@@ -173,7 +173,7 @@ class Product extends React.Component {
           height: '100%',
           left: 10,
           justifyContent: 'flex-end',
-          paddingBottom: 8,
+          padding: 8,
           marginTop: 4
         }}
       >
@@ -191,7 +191,7 @@ class Product extends React.Component {
           {
             flex: 1,
             marginBottom: 40,
-            width: 200,
+            width: 160,
             margin: Platform.OS === 'web' ? 15 : 0
           }
         }
@@ -229,7 +229,7 @@ class Product extends React.Component {
 
     return (
       <Fade visible={!(isHidden && isExpanded)}>
-        <View style={{ marginHorizontal: 15 }}>
+        <View style={{ marginHorizontal: 7 }}>
           <TouchableHighlight
             style={{
               height: 180,
@@ -254,6 +254,9 @@ class Product extends React.Component {
                 {
                   flex: 1,
                   width: 200,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  // padding: 8, 
                   backgroundColor: isExpanded ? '#CACBCB' : 'white',
                   /* Sombra */
                   shadowColor: 'black',
